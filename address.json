@@ -1,0 +1,28 @@
+{
+  "address": [
+    {
+      "id": 1,
+      "userId": "e7c25db9-9585-4f43-be03-be0424f5a4b9",
+      "city": "Hà Nội",
+      "district": "Quận Long Biên",
+      "ward": "Phường Phúc Đồng",
+      "status": 1
+    },
+    {
+      "id": 2,
+      "userId": "e7c25db9-9585-4f43-be03-be0424f5a4b9",
+      "city": "Hà Nội",
+      "district": "Huyện Gia Lâm",
+      "ward": "Xã Phú Thị",
+      "status": 1
+    },
+    {
+      "id": 3,
+      "userId": "e7c25db9-9585-4f43-be03-be0424f5a4b9",
+      "city": "Hà Nội",
+      "district": "Quận Hai Bà Trưng",
+      "ward": "Phường Bách Khoa",
+      "status": 0
+    }
+  ]
+}

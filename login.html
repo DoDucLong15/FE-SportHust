@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login & Register</title>
+    <link rel="stylesheet" href="/css/login.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+<body onload="checkLogin()">
+    <header>
+
+    </header>
+    <div class="container">
+        <div class="content">
+            <div class="text-sci">
+                <h2>Welcome to</h2>
+                <span>Hust Sport</span>
+
+                <!-- <div class="social-icons">
+                    <a href="#"><i class='bx bxl-facebook-square'></i></a>
+                    <a href="#"><i class='bx bxl-tiktok'></i></a>
+                    <a href="#"><i class='bx bxl-instagram-alt'></i></a>
+                    <a href="#"><i class='bx bxl-twitter'></i></a>
+                </div> -->
+
+            </div>
+        </div>
+
+        <div class="logreg-box">
+            <div class="formbox login">
+                <form action="">
+                    <h2>Đăng nhập</h2>
+                    <div class="input-box">
+                        <span class="icon"><i class='bx bx-user'></i></span>
+                        <input type="text" id="taikhoan" required>
+                        <label>Tên đăng nhập</label>
+                    </div>
+                    <div class="input-box">
+                        <span class="password-icon" onclick="togglePasswordVisibility(this, 'matkhau')"><i
+                                class='bx bx-hide'></i></span>
+                        <input type="password" id="matkhau" required>
+                        <label>Mật khẩu</label>
+                    </div>
+                    <div class="remember-forgot">
+                        <label>
+                            <input type="checkbox" id="remember-me-box">Nhớ mật khẩu
+                        </label>
+                        <a href="#">Quên mật khẩu?</a>
+
+                    </div>
+                    <button class="btn-logreg log" onclick="getIdToken(event)">Đăng nhập</button>
+                    <div class="login-register">
+                        <p>Chưa có tài khoản ? <a href="#" class="register-link">Đăng ký</a> </p>
+                    </div>
+                </form>
+            </div>
+            <div class="formbox register">
+                <form action="">
+                    <h2>Đăng ký</h2>
+                    <div class="input-box">
+                        <span class="icon"><i class='bx bx-user'></i></span>
+                        <input type="text" id="user-name" name="user-name" required>
+                        <label>Tên đăng nhập</label>
+                    </div>
+
+                    <div class="input-box">
+                        <span class="icon"><i class='bx bxs-envelope'></i></span>
+                        <input type="email" id="email" name="email" required>
+                        <label>Email</label>
+                    </div>
+                    <div class="input-box">
+                        <span class="icon" onclick="togglePasswordVisibility(this, 'password')"><i
+                                class='bx bx-hide'></i></span>
+                        <input type="password" id="password" name="passwordUS" autocomplete="current-password" required>
+                        <label>Mật khẩu</label>
+                    </div>
+                    <!-- <div class="input-box">
+                        <span class="icon"><i class='bx bxs-lock-alt' ></i></span>
+                        <input type="password" required>
+                        <label>Enter a new password</label>
+                    </div> -->
+                    <div class="remember-forgot">
+                        <label>
+                            <input type="checkbox">Đồng ý với mọi điều khoản
+                        </label>
+                    </div>
+
+                    <button type="submit" class="btn-logreg reg" onclick="checkRegisterStep1(event, this)">Đăng
+                        ký</button>
+
+                    <div class="login-register">
+                        <p>Đã có tài khoản ? <a href="#" class="login-link">Đăng nhập</a> </p>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+
+
+
+        <div class="UPregister">
+            <div class="btn-exitUPregister" onclick="hideUserInfoRegister(this)"> <i class='bx bx-x'></i></div>
+            <h1>
+                Thông tin chi tiết
+            </h1>
+            <div class="form first">
+                <div class="details-personal">
+                    <span class="title">Thông tin chi tiết</span>
+                    <div class="fields">
+                        <div class="input-field">
+                            <label>Tên <span>*</span></label>
+                            <input type="text" placeholder="Nhập tên của bạn" id="first-name" required>
+                        </div>
+                        <div class="input-field">
+                            <label>Họ <span>*</span></label>
+                            <input type="text" placeholder="Nhập họ của bạn" id="last-name" required>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Ngày sinh <span>*</span></label>
+                            <input type="date" id="date" required>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Ảnh đại diện<span>*</span></label>
+                            <input type="text" id="image" placeholder="Nhập địa chỉ url của ảnh" required>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Số điện thoại <span>*</span></label>
+                            <input type="text" placeholder="Nhập số điện thoại" id="phone-number" required>
+                        </div>
+
+
+                        <div class="input-field">
+                            <h4>Giới tính <span>*</span></h4>
+                            <select name="" id="gender" required>
+                                <option value="">Chọn giới tính</option>
+                                <option value="0">Nam</option>
+                                <option value="1">Nữ</option>
+                                <option value="2">Khác</option>
+                            </select>
+                        </div>
+
+                        <div class="input-field">
+                            <h4>Tỉnh/ Thành phố <span>*</span></h4>
+                            <select name="" id="provinces" onchange='getProvince(event)' required>
+                                <option value="">Chọn tỉnh/ thành phố</option>
+                            </select>
+                        </div>
+                        <div class="input-field">
+                            <h4>Quận/ Huyện <span>*</span></h4>
+                            <select name="" id="districts" onchange="getDistrict(event)" required>
+                                <option value="">Chọn quận/ huyện</option>
+                            </select>
+                        </div>
+                        <div class="input-field">
+                            <h4>Phường/ Xã <span>*</span></h4>
+                            <select name="" id="wards" required>
+                                <option value="">Chọn phường/ xã </option>
+                            </select>
+                        </div>
+                    </div>
+                    <button class="btn-confirmUP" onclick="register()">Xác nhận</button>
+
+                </div>
+
+            </div>
+
+
+
+
+
+
+        </div>
+
+        
+
+    </div>
+
+    <div class="OTP-confirm-email-panel">
+        <div class="container">
+            <!-- <div class="OTP-confirm-email-closeBtn">
+                <img src="/assets/img/icon/close.png" alt="">
+            </div> -->
+            
+            <h1>Xác nhận email</h1>
+
+            
+            <div class="OTP-confirm-email-body">
+                
+                
+            </div>
+
+        </div>
+    </div>
+
+    <script src="/js/base.js"></script>
+    <script src="/js/login.js"></script>
+</body>
+
+</html>

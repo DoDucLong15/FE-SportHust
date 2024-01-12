@@ -1,0 +1,335 @@
+
+/* ------------------------------------------------------------------------------------------------ */
+
+
+/* Search */
+.search {
+    display: flex;
+    flex-direction: column;
+    width: 693px;
+    height: 135px;
+    padding: 0px 8px;
+    margin: 0 auto;
+    margin-top: 80px;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.search-input {
+    width: 549px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    background-color: #d9d9d9;
+    padding: 8px 20px;
+    border-radius: 30px;
+}
+
+.search-input input::placeholder {
+    color: rgba(0, 0, 0, 0.36);
+    font-family: Inter;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%;
+    letter-spacing: 0.77px;
+
+}
+
+.search-input input {
+    width: 100%;
+    background: transparent;
+    border: none;
+}
+
+.search-input input:focus {
+    outline: none;
+}
+
+.btn-search {
+    background-color: rgba(10, 167, 236, 0.41);
+    border: none;
+    border-radius: 20px;
+    padding: 11px 12px;
+    color: #262626;
+    font-family: Inter;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 120%;
+    /* 19.2px */
+    letter-spacing: 0.88px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.search-suggest {
+    width: 100%;
+    display: flex;
+}
+
+.search-suggest span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: Inter;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+}
+
+.suggest-list {
+    display: flex;
+    gap: 8px;
+    margin-left: 12px;
+}
+
+.suggest-list>span{
+    display: flex;
+    padding: 4px 8px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 8px;
+    background: rgba(28, 142, 215, 0.70);
+    color: #fff;
+    font-family: Inter;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+    cursor: pointer;
+}
+
+.suggest-list>span:hover {
+    opacity: 0.8;
+}
+
+/* end search */
+/* ------------------------------------------------------------------------------------------------ */
+
+
+
+/* slider */
+#slide {
+    height: 500px;
+}
+
+.slide-container {
+    display: block;
+    position: relative;
+    padding-top: 56.25%;
+}
+
+.slide-container img {
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 500px;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+}
+
+
+/* sub-banner */
+
+.sub-banner {
+    display: flex;
+    width: 914px;
+    padding: 8px 24px;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+    margin-top: 48px;
+    border-radius: 20px;
+    background: #90CAEE;
+}
+
+.sub-banner .item {
+    display: flex;
+    height: 78px;
+    padding: 12px;
+    justify-content: space-between;
+    align-items: center;
+    gap: 4px;
+}
+
+.sub-banner .item img {
+    width: 40px;
+}
+
+.sub-banner .item .text {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    color: #12486B;
+    font-family: Inter;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 120%;
+    letter-spacing: 0.99px;
+}
+
+.sub-banner .item .text span {
+    color: #F46938;
+}
+
+/* Product */
+#product {
+    width: 100%;
+    margin-top: 48px;
+    padding: 30px 147px;
+    padding-bottom: 50px;
+    border-top: 1px solid #ccc;
+    border-bottom: 2px solid #ccc;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#product h1 {
+    color: #000;
+    font-family: Roboto;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 48px;
+    text-transform: uppercase;
+}
+
+.product-container {
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 70px;
+    margin-top: 30px;
+}
+
+.product-item {
+    width: 400px;
+    height: 280px;
+    cursor: pointer;
+}
+
+.product-football {
+    position: relative;
+    background: url('/assets/img/others/product-football1.png');
+}
+
+.product-item {
+    position: relative;
+    border-radius: 20px;
+}
+
+.product-item:hover .product-item-name {
+    color: #F46938;
+}
+
+.product-item-name {
+    color: #FFF;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    font-family: Roboto;
+    font-size: 40px;
+    font-style: italic;
+    font-weight: 800;
+    line-height: 48px;
+}
+
+.product-football .product-item-name,
+.product-swimming .product-item-name {
+    position: absolute;
+    top: 22px;
+    right: 12px;
+}
+
+.product-volleyball {
+    background: url('/assets/img/others/product-volleyball1.png');
+}
+
+.product-volleyball span,
+.product-running span {
+    position: absolute;
+    bottom: 22px;
+    left: 8px;
+}
+
+.product-swimming {
+    background: url('/assets/img/others/product-swimming.png');
+}
+
+.product-running {
+    background: url('/assets/img/others/product-running1.png');
+}
+
+/* ---------------------------------------------------------------------------------------------- */
+/* Service */
+#service {
+    width: 100%;
+    height: 500px;
+    padding: 20px 0px 0;
+    margin: 30px 0 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    /* border-bottom: 2px solid #ccc; */
+}
+
+#service h1 {
+    color: #000;
+    font-family: Roboto;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 48px;
+    text-transform: uppercase;
+}
+
+.service-container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 150px;
+}
+
+.service-container a :hover {
+    color: #2e76bd;
+}
+
+.book-football-field h2,
+.print-as-demand h2 {
+    color: #000;
+    font-family: "Roboto", "sans-serif";
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 48px;
+}
+
+.book-football-field,
+.print-as-demand {
+    width: 360px;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 32px;
+}
+
+/* ---------------------------------------------------------------------------------------------- */
+
+
+/* -------------------------------------------------------------------------------------------------- */

@@ -1,0 +1,63 @@
+body{
+    font-family:sans-serif;
+    height: 100vh;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to top,rgba(0,0,0,0.7),rgba(0,0,0,0.1 )),url('bg09.jpg') no-repeat center/cover;
+    /* linear-gradient() tạo hiểu ứng chuyển từ màu này sang
+    màu khác */
+}   
+.otpForm{
+    position: relative;
+    padding:20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(255,255,255,0.3);
+    z-index:1000;
+    color:black;
+    width:300px;
+    height: 40%;
+    background-color: aliceblue;
+    padding: 35px 40px;
+}
+/* .otpForm label{
+    
+} */
+
+.otpForm .otp-input{
+    position: relative;
+    width: 100%;
+    height: 40px;
+    text-align: center;
+    font-size:20px;
+    outline: none; 
+    background:rgba(255,255,255,0.3);
+    transition: border-radius 0.5s ;
+    margin-top:30px;
+}
+.otpForm label{
+    margin-top:30px;
+    
+}
+.otpForm .btn-exitOTP{
+    position: absolute;
+    right: 20px;
+    top:15px;
+    font-size:40px;
+    cursor: pointer;
+}
+.otpForm h2{
+    margin-top:-5px;
+    font-size: 1em;
+    color:rgb(136, 24, 24);
+}
+.otpForm button{
+    display:flex;
+    margin-top:20px;
+    justify-content: space-between;
+    font-size: 15px;
+    cursor:pointer;
+    
+    
+}
+    

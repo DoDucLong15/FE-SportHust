@@ -1,0 +1,120 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Giày bóng đá Zocker Inspire",
+      "price": 729000
+    },
+    {
+      "id": 2,
+      "name": "Áo đá bóng Manchester United",
+      "price": 150000
+    },
+    {
+      "id": 3,
+      "name": "Kính bơi",
+      "price": 30000
+    },
+    {
+      "name": "Vợt cầu lông",
+      "price": "500000",
+      "id": 4
+    },
+    {
+      "name": "Vợt cầu lông",
+      "price": "500000",
+      "id": 5
+    },
+    {
+      "name": "Vợt cầu lông",
+      "price": "500000",
+      "id": 6
+    },
+    {
+      "name": "Áo chạy bộ nam Arsuxeo MS49",
+      "price": "249000",
+      "id": 7
+    }
+  ],
+  "userInfo": {
+    "id": "U01",
+    "name": "Đào Anh Quân",
+    "phoneNumber": "0972833225",
+    "city": {
+      "code": "33",
+      "full_name": "Tỉnh Hưng Yên"
+    },
+    "district": {
+      "code": "330",
+      "full_name": "Huyện Khoái Châu"
+    },
+    "ward": {
+      "code": "12247",
+      "full_name": "Xã Tân Châu"
+    }
+  },
+  "address": [
+    {
+      "city": {
+        "code": "33",
+        "full_name": "Tỉnh Hưng Yên"
+      },
+      "district": {
+        "code": "330",
+        "full_name": "Huyện Khoái Châu"
+      },
+      "ward": {
+        "code": "12247",
+        "full_name": "Xã Tân Châu"
+      },
+      "status": 1,
+      "id": 1
+    },
+    {
+      "city": {
+        "code": "31",
+        "full_name": "Thành phố Hải Phòng"
+      },
+      "district": {
+        "code": "306",
+        "full_name": "Quận Hải An"
+      },
+      "ward": {
+        "code": "11414",
+        "full_name": "Phường Thành Tô"
+      },
+      "status": 0,
+      "id": 2
+    }
+  ],
+
+  "bill": [
+    {
+      "Code": "HD001",
+      "StartDate": "01/01/2023",
+      "EndDate": "10/01/2023",
+      "TotalMoney": 350000,
+      "State": 2
+    },
+
+    {
+      "Code": "HD002",
+      "StartDate": "12/08/2023",
+      "EndDate": "20/08/2023",
+      "TotalMoney": 1250000,
+      "State": 3
+    },
+
+    {
+      "Code": "HD003",
+      "StartDate": "24/11/2023",
+      "EndDate": "30/11/2023",
+      "TotalMoney": 750000,
+      "State": 1
+    }
+
+
+  ]
+
+
+}

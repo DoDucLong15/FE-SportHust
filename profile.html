@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="/css/profile.css">
+    <link rel="stylesheet" href="/css/base.css">
+    <title>Hust Sport</title>
+</head>
+
+<body onload="start()">
+    <header>
+        <div class="header-left">
+            <a href="/index.html"><img src="/assets/img/logo/logo-full.png" alt=""></a>
+        </div>
+
+        <div class="header-right">
+            <ul class="menu">
+                <li><a href="/index.html">TRANG CHỦ</a></li>
+                <li class="menu-product">
+                    <a href="#product">
+                        SẢN PHẨM
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </a>
+
+                    <div class="sub-menu-product">
+                        <div onclick="redirectToCategory('Bóng đá', '2c6933bc-96ac-47c8-921f-e275018b31e9')">Bóng đá
+                        </div>
+                        <div onclick="redirectToCategory('Bóng chuyền','42380a8f-4330-4b72-be77-df613b206bb8')">Bóng
+                            chuyền</div>
+                        <div onclick="redirectToCategory('Bơi lội','9adf2fdf-4dc8-4fec-85f5-42455815761b')">Bơi lội
+                        </div>
+                        <div onclick="redirectToCategory('Chạy bộ','fb441d06-8e04-4780-8659-a87258048a82')">Chạy bộ
+                        </div>
+
+                    </div>
+
+                </li>
+                <li><a href="#footer">LIÊN HỆ</a></li>
+
+                <li class="header_cart">
+                    <span class="header_cart-navItem">GIỎ HÀNG</span>
+                    <div class="header_cart-body">
+                        <h4 class="header_cart-list-title">Sản phẩm đã thêm</h4>
+                        <img src="/assets/img/others/no-cart.png" alt="" class="header_cart-no-cart-img">
+                        <span class="header_cart-list-no-cart-msg">
+                            Chưa có sản phẩm
+                        </span>
+                        <ul id="header-cart-list">
+
+                        </ul>
+                        <div class="go-to-cart-btn">
+                            <button>Đi đến giỏ hàng</button>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            <!-- <div class="heading-btn">
+                <button class="btn-login">Đăng nhập</button>
+                <button class="btn-signup">Đăng ký</button>
+            </div> -->
+
+            <div class="header-user">
+                <p class="header-username">Username</p>
+                <img src="" class="header-user-avatar">
+                <i class="fa-solid fa-chevron-down"></i>
+            </div>
+
+        </div>
+    </header>
+
+    <section id="profile-container">
+        <div class="profile-left">
+            <div class="profile-left-header">
+                <img src="/assets/img/icon/user.png" alt="">
+                <h2>Quản lý tài khoản</h2>
+            </div>
+
+            <div class="profile-left-tab-list">
+                <div class="tab" onclick="changeTab('tab1')">Hồ sơ</div>
+                <div class="tab" onclick="changeTab('tab2')">Địa chỉ</div>
+                <div class="tab" onclick="changeTab('tab3')">Đổi mật khẩu</div>
+                <div class="tab" onclick="changeTab('tab4')">Xem thông tin hóa đơn</div>
+            </div>
+        </div>
+
+        <div class="profile-right">
+            <div id="tab1" class="tab-content">
+                <h1 class="tab-title">Hồ sơ của tôi</h1>
+                <p class="tab-description">Quản lý hồ sơ, thay đổi thông tin cá nhân</p>
+                <div class="myProfile-info">
+                    <div class="info-input">
+                        <div class="info-input-loginName info-input-item">
+                            <p>Tên đăng nhập:</p>
+                            <input type="text">
+
+                        </div>
+
+                        <div class="info-input-username info-input-item">
+                            <p>Họ:</p>
+                            <input type="text">
+
+                        </div>
+
+                        <div class="info-input-phoneNumber info-input-item">
+                            <p>Số điện thoại:</p>
+                            <input type="text">
+
+                        </div>
+
+                        <div class="info-input-email info-input-item">
+                            <p>Địa chỉ email:</p>
+                            <input type="email" required name="email" required>
+
+                        </div>
+
+                        <button class="change-info-btn">Chỉnh sửa</button>
+
+                        <!-- <button class="save-info" onclick="updateUserInfo()">Lưu</button> -->
+                    </div>
+                </div>
+                <div class="info-avatar">
+                    <img src="" class="info-avatar-img">
+                    <p>Ảnh đại diện</p>
+                    <input type="file" name="avatarImg" id="avatarImg" style="display:none;"
+                        onchange="displaySelectedImage()">
+                    <label class="change-avatar" for="avatarImg">Thay đổi</label>
+                    <!-- <button class="change-avatar">Thay đổi</button> -->
+                </div>
+            </div>
+
+            <div id="tab2" class="tab-content">
+                <h1 class="tab-title">Địa chỉ của tôi</h1>
+                <p class="tab-description">Thay đổi địa chỉ mặc định, thêm địa chỉ mới</p>
+                <div class="add-new-adress">
+                    <img src="/assets/img/icon/add.png" alt="">
+                    <p>Thêm địa chỉ mới</p>
+                </div>
+                <ul class="address-list"></ul>
+                <button class="update-address-btn" onclick="addressUpdateChange()">Lưu thay đổi</button>
+            </div>
+
+            <div id="tab3" class="tab-content">
+                <h1 class="tab-title">Mật khẩu</h1>
+                <p class="tab-description">Thay đổi mật khẩu</p>
+                <div class="password-container">
+                    <div class="password-container-left">
+                        <div class="current-password">
+                            <p>Mật khẩu hiện tại:</p>
+                            <input type="password" id="current-password">
+                            <i class='bx bx-hide' id="icon-current-password" onclick="toggleUserPasswordVisibility('current-password', 'icon-current-password')"></i>
+                        </div>
+                        <div class="new-password">
+                            <p>Mật khẩu mới:</p>
+                            <input type="password" id="new-password">
+                            <i class='bx bx-hide' id="icon-new-password" onclick="toggleUserPasswordVisibility('new-password', 'icon-new-password')"></i>
+
+                        </div>
+
+                        <div class="new-password-again">
+                            <p>Nhập lại mật khẩu mới:</p>
+                            <input type="password" id="new-password-again">
+                            <i class='bx bx-hide' id="icon-new-password-again" onclick="toggleUserPasswordVisibility('new-password-again', 'icon-new-password-again')"></i>
+                        </div>
+
+                        <button id="confirm-password-btn" onclick="changeUserPassword()">Xác nhận</button>
+                    </div>
+                    <div class="password-container-right">
+                        <img src="/assets/img/icon/shield.png" alt="">
+                    </div>
+                </div>
+
+            </div>
+
+            <div id="tab4" class="tab-content">
+                <h1 class="tab-title">Xem thông tin hóa đơn</h1>
+                <div class="bill-container">
+                    <table id="bill-list-table">
+                        <thead>
+                            <tr>
+                                <th>Mã hóa đơn</th>
+                                <th>Ngày đặt hàng</th>
+                                <th>Ngày giao hàng (Dự kiến)</th>
+                                <th>Tổng tiền</th>
+                                <th>Tình trạng</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+
+                        </tbody>
+                        <!-- <tr>
+                            <td>HD001</td>
+                            <td>01/01/2023</td>
+                            <td>08/01/2023</td>
+                            <td>350.000đ</td>
+                            <td>Đã giao</td>
+                            <td class="bill-more-action">
+                                <img src="/assets/img/icon/more.png" alt="" class="user-more-action-btn"
+                                    onclick="showBillAction(this)">
+                                <div class="bill-more-action-panel">
+                                    <div class="bill-more-action-option confirm-bill" onclick="">Xác nhận đơn hàng</div>
+                                    <div class="bill-more-action-option cancel-bill" onclick="">Hủy đơn hàng</div>
+                                </div>
+                            </td>
+                        </tr> -->
+
+
+
+                    </table>
+
+                    <div id="bill-table-pagination">
+                        <button onclick="changeBillPage(-1)"><i class="fa-solid fa-angle-left"></i></button>
+                        <span id="current-bill-page">Trang 1</span>
+                        <button onclick="changeBillPage(1)"><i class="fa-solid fa-angle-right"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="new-address-panel">
+            <div class="container">
+                <div class="new-address-closeBtn">
+                    <img src="/assets/img/icon/close.png" alt="">
+                </div>
+                <h1>Thêm địa chỉ mới</h1>
+                <div class="new-address-input">
+                    <div class="new-address-input-item">
+                        <select name="" id="provinces" onchange="getProvince(event)">
+                            <option value="0">Chọn tỉnh/ thành phố</option>
+                        </select>
+                    </div>
+                    <div class="new-address-input-item">
+                        <select name="" id="districts" onchange="getDistrict(event)">
+                            <option value="0">Chọn quận/ huyện</option>
+                        </select>
+                    </div>
+                    <div class="new-address-input-item">
+                        <select name="" id="wards">
+                            <option value="0">Chọn phường/ xã </option>
+                        </select>
+                    </div>
+                </div>
+
+                <button class="add-address-button">Xác nhận</button>
+            </div>
+        </div>
+
+        <div class="change-user-info-panel">
+            <div class="container">
+                <div class="change-user-info-closeBtn">
+                    <img src="/assets/img/icon/close.png" alt="">
+                </div>
+                <h1>Chỉnh sửa thông tin</h1>
+                <div class="change-user-info-input">
+                    <div class="change-user-info-item">
+                        <input type="text" placeholder="Số điện thoại" class="change-user-info-phoneNumber">
+                    </div>
+                    <div class="change-user-info-item">
+                        <input type="text" placeholder="Email" class="change-user-info-email">
+                    </div>
+                </div>
+
+                <button class="change-user-info-confirm" onclick="updateUserInfo()">Xác nhận</button>
+            </div>
+        </div>
+
+        <div class="bill-detail-panel">
+            <div class="container">
+                <div class="bill-detail-closeBtn">
+                    <img src="/assets/img/icon/close.png" alt="">
+                </div>
+                <h1>Chi tiết đơn hàng</h1>
+                <div class="bill-detail-body">
+
+                </div>
+
+            </div>
+        </div>
+
+
+    </section>
+
+    <footer id="footer">
+        <div class="footer-product">
+            <h3>Sản phẩm</h3>
+            <ul class="">
+                <li><a href="">Quần áo</a></li>
+                <li><a href="">Giày</a></li>
+                <li><a href="">Bóng</a></li>
+                <li><a href="">Kính bơi</a></li>
+                <li><a href="">Phụ kiện</a></li>
+            </ul>
+
+        </div>
+        <div class="footer-sport">
+            <h3>Thể thao</h3>
+            <ul>
+                <li><a href="/category.html">Bóng đá</a></li>
+                <li><a href="">Bóng chuyền</a></li>
+                <li><a href="">Bơi lội</a></li>
+                <li><a href="">Chạy</a></li>
+            </ul>
+        </div>
+        <div class="footer-info">
+            <h3>Thông tin</h3>
+            <ul>
+                <li>Web bán hàng và dịch vụ thể thao</li>
+                <li>Nhóm 6 - lớp 144913</li>
+                <li>Nhập môn Công nghệ Phần mềm</li>
+                <li>GVHD: cô Bùi Thị Mai Anh</li>
+            </ul>
+        </div>
+        <div class="footer-members">
+            <h3>Thành viên</h3>
+            <ul>
+                <li>Đỗ Đức Long 20215609</li>
+                <li>Nguyễn Thanh Hải 20215571</li>
+                <li>Trần Ngọc Minh 20215617</li>
+                <li>Vũ Quang Nam 20215622</li>
+                <li>Đào Anh Quân 20215631</li>
+                <li>Vũ Văn Hùng 20215588</li>
+            </ul>
+        </div>
+        <div class="footer-follow-us">
+            <h3>Theo dõi chúng tôi</h3>
+            <ul>
+                <li><a href="https://www.facebook.com/" target="_blank"><img src="/assets/img/icon/fb.png" alt=""></a>
+                </li>
+                <li><a href="https://www.youtube.com/" target="_blank"><img src="/assets/img/icon/insta.png" alt=""></a>
+                </li>
+                <li><a href="https://www.instagram.com/" target="_blank"><img src="/assets/img/icon/youtube.png"
+                            alt=""></a></li>
+                <li><a href="https://twitter.com/?lang=vi" target="_blank"><img src="/assets/img/icon/twitter.png"
+                            alt=""></a></li>
+                <li><a href="https://www.tiktok.com/vi-VN/" target="_blank"><img src="/assets/img/icon/tiktok.png"
+                            alt=""></a>
+                </li>
+            </ul>
+        </div>
+    </footer>
+
+
+    <script src="/js/base.js"></script>
+    <script src="/js/profile.js"></script>
+
+
+</body>
+
+
+
+
+</html>

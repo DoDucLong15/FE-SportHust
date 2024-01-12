@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OTP Form</title>
+  <link rel="stylesheet" type="text/css" href="otp.css">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+<body>
+
+  <div class="otpForm">
+    <form>
+      <div class="btn-exitOTP"> <i class='bx bx-x'></i></div>
+      <label for="otp" style="font-size: 18px;">Nhập OTP:</label><br>
+      <input type="text" name="otp-input" id="otp-input" class="otp-input" maxlength="6" required><br><br>
+      <h2>Vui lòng check email để lấy mã OTP, nếu quý khách không nhận được xin vui lòng ấn gửi lại OTP.</h2>
+      <button type="button" id="verifyBtn" class="btn" onclick="verifyOTP()">Xác thực OTP</button>
+      <button type="button" id="resendBtn" class="btn" onclick="resendOTP()">Gửi lại OTP</button>
+    </form>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>

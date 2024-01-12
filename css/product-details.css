@@ -1,0 +1,245 @@
+.DTproduct-container {
+  margin: 100px 0 30px;
+  padding: 12px 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.DTproduct-container .DTproduct-content {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+/*  */
+
+.DTproduct-container .DTproduct-content img {
+  width: 500px;
+  height: 500px;
+  object-fit: contain;
+  padding: 50px;
+  text-align: center;
+  border-radius: 20px;
+  border: 1px solid #ccc;
+}
+
+
+
+.DTproduct-container .DTproduct-choose {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 20px 40px;
+}
+
+.DTproduct-container .DTproduct-size {
+  display: flex;
+  align-items: center;
+  margin-top: 15px;
+}
+
+.DTproduct-choose h2 {
+  word-wrap: break-word;
+  color: #000;
+  font-family: Inter;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 120%;
+  /* 38.4px */
+  letter-spacing: 1.76px;
+
+}
+
+.DTproduct-choose p {
+  color: #B93737;
+  font-family: Inter;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: 120%;
+  letter-spacing: 1.32px;
+}
+
+.DTproduct-choose .DTproduct-size {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 20% auto;
+  padding: 9px 12px 9px 0px;
+  align-items: center;
+  gap: 20px;
+}
+
+.DTproduct-choose .DTproduct-size select {
+  width: 100px;
+  padding: 4px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.DTproduct-choose .DTproduct-size h2,
+.DTproduct-brand h2,
+.DTproduct-brand span {
+  color: #000;
+  font-family: Inter;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 120%;
+  /* 19.2px */
+  letter-spacing: 0.88px;
+}
+
+.DTproduct-choose .DTproduct-color,
+.DTproduct-brand {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 20% auto;
+  padding: 9px 12px 9px 0px;
+  gap: 20px;
+  align-items: center;
+
+}
+
+.DTproduct-choose .DTproduct-color h2,
+.DTproduct-quantity h2,
+.DTproduct-price h2 {
+  color: #000;
+  font-family: Inter;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  letter-spacing: 0.88px;
+}
+
+.DTproduct-color-list {
+  display: flex;
+  gap: 20px;
+}
+
+
+.color-button {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  box-shadow: 5px 5px 4px 0px rgba(0, 0, 0, 0.25) inset;
+  border: none;
+  cursor: pointer;
+
+}
+
+
+.checked {
+  transform: translateY(-5px);
+}
+
+.DTproduct-choose .DTproduct-quantity {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 20% auto;
+  gap: 20px;
+  align-items: center;
+
+}
+
+.DTproduct-quantity .quantity-button {
+  width: 30px;
+  height: 30px;
+  font-size: 16px;
+  background-color: rgb(210, 210, 210);
+  color: white;
+  border: none;
+  cursor: pointer;
+  color: black;
+  border-radius: 6px;
+}
+
+.DTproduct-quantity #quantity {
+  margin: 0 10px;
+}
+
+.DTproduct-price {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 20% auto;
+  padding: 9px 12px 9px 0px;
+  align-items: center;
+  gap: 20px;
+}
+
+#product-old-price {
+  color: #4B5463;
+  font-family: Roboto;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: 30px;
+  text-decoration: line-through;
+}
+
+#product-new-price {
+  font-family: Roboto;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: 30px;
+}
+
+.DTproduct-choose .DTproduct-add {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+
+}
+
+.DTproduct-add .add-to-cart-button {
+  width: 191px;
+  height: 40px;
+  margin-top: 30px;
+  border: none;
+  cursor: pointer;
+  border-radius: 30px;
+  background: #B93737;
+  color: #FFF;
+  font-family: Inter;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 120%;
+  /* 19.2px */
+  letter-spacing: 0.88px;
+
+}
+
+.product-detail {
+  padding: 30px 50px;
+  border-top: 1px solid #ccc;
+  margin-bottom: 20px;
+}
+
+.product-detail h1 {
+  margin-bottom: 24px;
+  text-align: center;
+  font-family: Inter;
+  font-size: 40px;
+  font-style: bold;
+  font-weight: 600;
+  line-height: 120%;
+}
+
+#product-detail-description {
+  font-family: Inter;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+}

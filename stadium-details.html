@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hust Sport</title>
+    <link rel="stylesheet" href="/css/product-details.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="/css/base.css">
+    <link rel="stylesheet" href="/css/stadium-details.css">
+
+</head>
+
+<body onload="getStadiumDetailById()">
+
+    <header>
+        <div class="header-left">
+            <a href="/index.html"><img src="/assets/img/logo/logo-full.png" alt=""></a>
+        </div>
+
+        <div class="header-right">
+            <ul class="menu">
+                <li><a href="/index.html">TRANG CHỦ</a></li>
+                <li class="menu-product">
+                    <a href="#product">
+                        SẢN PHẨM
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </a>
+
+                    <div class="sub-menu-product">
+                        <div onclick="redirectToCategory('Bóng đá', '2c6933bc-96ac-47c8-921f-e275018b31e9')">Bóng đá
+                        </div>
+                        <div onclick="redirectToCategory('Bóng chuyền','42380a8f-4330-4b72-be77-df613b206bb8')">Bóng
+                            chuyền</div>
+                        <div onclick="redirectToCategory('Bơi lội','9adf2fdf-4dc8-4fec-85f5-42455815761b')">Bơi lội
+                        </div>
+                        <div onclick="redirectToCategory('Chạy bộ','fb441d06-8e04-4780-8659-a87258048a82')">Chạy bộ
+                        </div>
+
+                    </div>
+
+                </li>
+                <li><a href="#footer">LIÊN HỆ</a></li>
+
+                <li class="header_cart">
+                    <span class="header_cart-navItem">GIỎ HÀNG</span>
+                    <div class="header_cart-body">
+                        <h4 class="header_cart-list-title">Sản phẩm đã thêm</h4>
+                        <img src="/assets/img/others/no-cart.png" alt="" class="header_cart-no-cart-img">
+                        <span class="header_cart-list-no-cart-msg">
+                            Chưa có sản phẩm
+                        </span>
+                        <ul id="header-cart-list">
+
+                        </ul>
+                        <div class="go-to-cart-btn">
+                            <button onclick="moveToCart()">Đi đến giỏ hàng</button>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            <div class="heading-btn">
+                <button class="btn-login">Đăng nhập</button>
+                <button class="btn-signup">Đăng ký</button>
+            </div>
+            <div class="header-user">
+                <p class="header-fullname">Username</p>
+                <img src="" class="header-user-avatar">
+                <i class="fa-solid fa-chevron-down" id="user-action"></i>
+                <div class="user-menu">
+                    <span class="user-profile" onclick="showProfilePage()">Xem tài khoản</span>
+                    <span class="user-logout" onclick="logOut()">Đăng xuất</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="stadium-detail-container">
+        <div class="stadium-detail-left">
+            <div class="stadium-detail-img-wrap">
+                <img src="" alt="" class="responsive-image" id="stadium-image">
+            </div>
+
+        </div>
+
+        <div class="stadium-detail-right">
+            <div class="stadium-detail-name">
+                <!-- Sân bóng đầm hồng 2 -->
+            </div>
+
+            <div class="stadium-detail-address">
+                Địa chỉ: <span></span>
+            </div>
+
+
+
+            <div class="stadium-detail-price">
+                <h2>Giá:</h2>
+                <span></span> / Trận
+            </div>
+
+            <div class="stadium-detail-right-bottom">
+                <button id="book-stadium" onclick="showPhoneNumber()">Đặt sân</button>
+                <div class="stadium-detail-phoneNumber">
+                    <h2>Liên hệ số điện thoại:</h2>
+                    <span></span>
+                    <p> để đặt sân</p>
+                </div>
+            </div>
+
+        </div>
+
+
+
+    </div>
+
+    <div class="stadium-detail">
+        <h1>Mô tả chi tiết</h1>
+        <p id="stadium-detail-description"></p>
+    </div>
+
+    <footer id="footer">
+        <div class="footer-product">
+            <h3>Sản phẩm</h3>
+            <ul class="">
+                <li><a href="">Quần áo</a></li>
+                <li><a href="">Giày</a></li>
+                <li><a href="">Bóng</a></li>
+                <li><a href="">Kính bơi</a></li>
+                <li><a href="">Phụ kiện</a></li>
+            </ul>
+
+        </div>
+        <div class="footer-sport">
+            <h3>Thể thao</h3>
+            <ul>
+                <li><a href="/category.html">Bóng đá</a></li>
+                <li><a href="">Bóng chuyền</a></li>
+                <li><a href="">Bơi lội</a></li>
+                <li><a href="">Chạy</a></li>
+            </ul>
+        </div>
+        <div class="footer-info">
+            <h3>Thông tin</h3>
+            <ul>
+                <li>Web bán hàng và dịch vụ thể thao</li>
+                <li>Nhóm 6 - lớp 144913</li>
+                <li>Nhập môn Công nghệ Phần mềm</li>
+                <li>GVHD: cô Bùi Thị Mai Anh</li>
+            </ul>
+        </div>
+        <div class="footer-members">
+            <h3>Thành viên</h3>
+            <ul>
+                <li>Đỗ Đức Long 20215609</li>
+                <li>Nguyễn Thanh Hải 20215571</li>
+                <li>Trần Ngọc Minh 20215617</li>
+                <li>Vũ Quang Nam 20215622</li>
+                <li>Đào Anh Quân 20215631</li>
+                <li>Vũ Văn Hùng 20215588</li>
+            </ul>
+        </div>
+        <div class="footer-follow-us">
+            <h3>Theo dõi chúng tôi</h3>
+            <ul>
+                <li><a href="https://www.facebook.com/" target="_blank"><img src="/assets/img/icon/fb.png" alt=""></a>
+                </li>
+                <li><a href="https://www.youtube.com/" target="_blank"><img src="/assets/img/icon/insta.png" alt=""></a>
+                </li>
+                <li><a href="https://www.instagram.com/" target="_blank"><img src="/assets/img/icon/youtube.png"
+                            alt=""></a></li>
+                <li><a href="https://twitter.com/?lang=vi" target="_blank"><img src="/assets/img/icon/twitter.png"
+                            alt=""></a></li>
+                <li><a href="https://www.tiktok.com/vi-VN/" target="_blank"><img src="/assets/img/icon/tiktok.png"
+                            alt=""></a>
+                </li>
+            </ul>
+        </div>
+    </footer>
+
+    <script src="/js/base.js"></script>
+    <script>
+        // document.addEventListener('DOMContentLoaded', function () {
+        //     // Lấy thông tin sản phẩm từ URL (ví dụ: product-detail.html?id=123)
+        //     const urlParams = new URLSearchParams(window.location.search);
+        //     const productId = urlParams.get('id');
+        //     console.log(productId);
+        //     // Kiểm tra xem productId có tồn tại không
+        //     if (productId) {
+        //         // Gọi API để lấy thông tin chi tiết sản phẩm
+        //         fetch(`https://api-hust.eztek.net/product/get-detail?ProductId=${productId}`)
+        //             .then(response => response.json())
+        //             .then(data => {
+        //                 thisProduct = data;
+        //             })
+        //             .catch(error => console.error('Error fetching product details:', error));
+        //     } else {
+        //         console.error('Product ID not found in the URL');
+        //     }
+        // });
+
+        function getStadiumDetailById() {
+            let urlParams = new URLSearchParams(window.location.search);
+            let stadiumId = urlParams.get('id');
+            console.log(stadiumId);
+
+            let stadiumName = document.querySelector('.stadium-detail-name');
+            let stadiumAddress = document.querySelector('.stadium-detail-address span');
+            let stadiumPhoneNumber = document.querySelector('.stadium-detail-phoneNumber span');
+            let stadiumPrice = document.querySelector('.stadium-detail-price span');
+            let stadiumImage = document.getElementById('stadium-image');
+            let stadiumDescription = document.getElementById('stadium-detail-description');
+
+            fetch(`https://api-hust.eztek.net/stadium/get-detail?ProductId=${stadiumId}`, {
+                    method: 'GET',
+                    headers: {
+                        'Authorization': `Bearer ${idToken}`,
+                        'Content-Type': 'application/json'
+                    }
+
+                })
+                .then(response => response.json())
+                .then(data => {
+                    console.log(data);
+                    stadiumName.textContent = data.name;
+                    stadiumAddress.textContent = data.address;
+                    stadiumPhoneNumber.textContent = data.phoneNumber;
+                    stadiumPrice.textContent = data.price.toLocaleString('vn-VN') + 'đ';
+                    stadiumImage.src = data.image;
+                    stadiumDescription.textContent = data.description;
+                })
+                .catch(err => {
+                    console.log(err);
+                })
+        }
+
+
+        function showPhoneNumber() {
+            document.querySelector('.stadium-detail-phoneNumber').style.display = 'flex';
+        }
+    </script>
+
+
+
+</body>
+
+</html>

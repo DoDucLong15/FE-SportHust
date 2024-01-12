@@ -1,0 +1,517 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&family=Lobster&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:wght@100;300;400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Great+Vibes&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Roboto", "Helvetica Neue", "sans-serif";
+}
+
+body{
+    position: relative;
+}
+
+.container {
+    position: absolute;
+    top: 300px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    /* Các thuộc tính tiếp theo của .container */
+    width: 75%;
+    height: 550px;
+    /* height: 100%; */
+    background: url('/assets/c7d8dc0a09e245c36c5ec52b808dd73c.jpg') no-repeat;
+    background-color: #aaa;
+    background-size: cover;
+    background-position: center;
+    border-radius: 10px;
+    margin-top: 20px;
+    overflow: hidden;
+
+
+}
+
+.container .content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 58%;
+    height: 100%;
+    padding: 130px 80px;
+    color: #e8f3ff;
+    justify-content: space-between;
+    background: transparent;
+    z-index: 1;
+}
+
+.content .logo {
+    font-size: 30px;
+}
+
+.text-sci h2 {
+    font-size: 60px;
+    line-height: 1;
+    margin-bottom: 20px;
+    font-family: 'Great Vibes', cursive;
+}
+
+.text-sci span {
+    margin-top: 20px;
+    font-size: 90px;
+    font-family: 'Dancing Script', cursive;
+    font-weight: 700;
+    color: #a9cdff;
+}
+
+.text-sci p {
+    font-size: 16px;
+    margin: 20px 0;
+}
+
+.social-icons {
+    font-size: 22px;
+    color: #e4e4e4;
+    margin-right: 10px;
+    transition: .5s ease;
+}
+
+.social-icons a:hover i {
+    transform: scale(1.2);
+    /* phóng to lên 1.2 lần  */
+}
+
+.container .logreg-box {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 42%;
+    /* Số phần trăm còn lại của container */
+    height: 100%;
+    overflow: hidden;
+
+
+}
+
+.logreg-box .formbox {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    backdrop-filter: blur(20px);
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    color: #e4e4e4;
+    z-index: 1;
+
+}
+
+.formbox h2 {
+    font-size: 32px;
+    text-align: center;
+
+}
+
+.formbox .input-box {
+    position: relative;
+    width: 340px;
+    height: 50px;
+    border-bottom: 2px solid #e4e4e4;
+    margin: 30px 0;
+}
+
+.input-box input {
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    color: #e4e4e4;
+    font-weight: 500px;
+    padding-right: 28px;
+
+}
+
+.input-box label {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    font-size: 16px;
+    font-weight: 500;
+    pointer-events: none;
+    transition: .5s ease;
+}
+
+.input-box input:focus~label,
+.input-box input:valid~label {
+    top: -5px;
+    /* dịch chuyển lên */
+}
+
+.input-box .icon, .password-icon {
+    position: absolute;
+    right: 0;
+    top: 13px;
+    /* dịch chuyển xuôgns */
+    font-size: 19px;
+}
+
+.input-box .icon:hover, .password-icon:hover {
+    cursor: pointer;
+}
+
+.remember-forgot {
+    font-size: 14.5px;
+    font-weight: 500;
+    margin: -15px 0 15px 0;
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.remember-forgot label input {
+    accent-color: #e4e4e4;
+    margin-right: 3px;
+
+
+}
+
+.remember-forgot a {
+    color: #e4e4e4;
+    text-decoration: none;
+    /* khong có gạch chân */
+
+}
+
+.remember-forgot a:hover {
+    text-decoration: underline;
+}
+
+.btn-logreg {
+    width: 100%;
+    height: 45px;
+    background-color: #0066a5;
+    color: #e4e4e4;
+    border-radius: 4px;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    font-weight: 500;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .5);
+}
+
+.login-register p .register-link,
+.login-link {
+    font-weight: 700;
+    color: #648fcb;
+    text-decoration: none;
+    transition: .5s ease;
+}
+
+
+.login-register {
+    margin-top: 26px;
+    text-align: center;
+}
+
+.login-register a:hover {
+    transform: scale(1.2);
+    text-decoration: underline;
+
+}
+
+.logreg-box .formbox.login {
+    transform: translateX(0);
+    transition: transform .6s ease;
+}
+
+.logreg-box.active .formbox.login {
+    transform: translateX(500px);
+    transition-delay: 0s;
+}
+
+.logreg-box .formbox.register {
+    transform: translateX(500px);
+    transition: transform .5s;
+}
+
+.logreg-box.active .formbox.register {
+    transform: translate(0);
+    transition-delay: 0s;
+}
+
+/* UPregister */
+.container .UPregister {
+    position: absolute;
+    width: 100%;
+    background-color: white;
+    height: 550px;
+    z-index: 2;
+    left: 150%;
+    border-radius: 6px;
+    padding: 30px;
+    margin: 0 15px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    transition: 0.5s ease;
+
+}
+
+.UPregister .btn-exitUPregister {
+    position: absolute;
+    right: 20px;
+    top: 35px;
+    font-size: 40px;
+}
+
+.UPregister .btn-exitUPregister:hover {
+    cursor: pointer;
+
+}
+
+.UPregister h1 {
+    font-size: 36px;
+    font-weight: 600;
+    color: #333;
+
+}
+
+.UPregister header::before {
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    height: 3px;
+    width: 27px;
+    background-color: #4070f4;
+}
+
+
+.UPregister .details-personal {
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+    padding: 12px 30px;
+    height: 400px;
+}
+
+.UPregister .title {
+    display: block;
+    font-size: 28px;
+    font-weight: 500;
+    margin: 6px 0;
+    color: #333;
+    margin-bottom: 40px;
+
+}
+
+.container .fields {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    /* gap: 12px; */
+}
+
+.fields .input-field {
+    width: 30%;
+    display: grid;
+    grid-template-columns: 33% 67%;
+    align-items: center;
+    margin: 4px 0;
+
+}
+
+.input-field label {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.input-field label,
+h4 {
+    font-size: 12px;
+    font-weight: 500;
+    color: #2e2e2e;
+}
+
+.input-field span {
+    color: red;
+}
+
+/* .input-field option{
+    padding-left:2px;
+
+} */
+.input-field input,
+select {
+    outline: none;
+    font-size: 14px;
+    font-weight: 400;
+    color: #333;
+    border-radius: 5px;
+    border: 1px solid #aaa;
+    padding: 0 18px;
+    height: 42px;
+    margin: 8px 0;
+
+
+}
+
+.input-field input:is(:focus, :valid) {
+    box-shadow: 0 3px 6px rgba(0, 0, 0, .13);
+}
+
+.input-field input[type="date"]:valid {
+    color: #333;
+}
+
+.btn-confirmUP {
+    text-align: center;
+    height: 50px;
+    width: 140px;
+    background-color: #1C8ED7;
+    border: none;
+    border-radius: 10px;
+    color: #fff;
+    font-family: Roboto;
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 48px;
+    cursor: pointer;
+    margin-top: 40px;
+
+}
+
+.UPregister.active1 {
+    display: block;
+    position: relative;
+    left: 0px;
+
+
+}
+
+.OTP-confirm-email-panel {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.4);
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+.OTP-confirm-email-panel .container {
+    position: relative;
+    top: 150px;
+    left: 300px;
+    width: 600px;
+    height: 350px;
+    border-radius: 20px;
+    background: #FFF;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    padding: 33px 30px;
+    animation: panelFadein ease 0.5s;
+}
+
+.OTP-confirm-email-closeBtn {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+}
+
+.OTP-confirm-email-panel img {
+    width: 20px;
+    cursor: pointer;
+}
+
+.OTP-confirm-email-panel .container h1 {
+    color: #000;
+    font-family: Inter;
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 32px;
+    /* 100% */
+}
+
+.OTP-confirm-email-body p {
+    color: #000;
+    font-family: Inter;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 28px;
+    /* 100% */
+}
+
+
+.OTP-confirm-email-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.OTP-confirm-email-body p span {
+    color: #082a3e;
+    font-weight: 600;
+}
+
+.OTP-confirm-email-input {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    height: 32px;
+}
+
+.OTP-confirm-email-input input {
+    height: 32px;
+    border: 1px solid #a4a4a4;
+    padding: 4px 8px;
+}
+
+.OTP-confirm-email-input h2 {
+    color: #000;
+    font-family: Inter;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 32px;
+}
+
+.OTP-confirm-email-button {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.OTP-confirm-email-button button {
+    color: #000;
+    font-family: Inter;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    padding: 6px 8px;
+    background-color: #b3b3b3;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.OTP-confirm-email-button button:hover {
+    opacity: 0.8;
+}

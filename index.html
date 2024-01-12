@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="/css/base.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <title>Hust Sport</title>
+</head>
+
+<body onload="start()">
+    
+    <header>
+        <div class="header-left">
+            <a href="/index.html"><img src="/assets/img/logo/logo-full.png" alt=""></a>
+        </div>
+
+        <div class="header-right">
+            <ul class="menu">
+                <li><a href="/index.html">TRANG CHỦ</a></li>
+                <li class="menu-product">
+                    <a href="#product">
+                        SẢN PHẨM
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </a>
+
+                    <div class="sub-menu-product">
+                        <div onclick="redirectToCategory('Bóng đá', '2c6933bc-96ac-47c8-921f-e275018b31e9')">Bóng đá
+                        </div>
+                        <div onclick="redirectToCategory('Bóng chuyền','42380a8f-4330-4b72-be77-df613b206bb8')">Bóng
+                            chuyền</div>
+                        <div onclick="redirectToCategory('Bơi lội','9adf2fdf-4dc8-4fec-85f5-42455815761b')">Bơi lội
+                        </div>
+                        <div onclick="redirectToCategory('Chạy bộ','fb441d06-8e04-4780-8659-a87258048a82')">Chạy bộ
+                        </div>
+                    </div>
+
+                </li>
+                <li><a href="#footer">LIÊN HỆ</a></li>
+
+                <li class="header_cart">
+                    <span class="header_cart-navItem">GIỎ HÀNG</span>
+                    <div class="header_cart-body">
+                        <h4 class="header_cart-list-title">Sản phẩm đã thêm</h4>
+                        <img src="/assets/img/others/no-cart.png" alt="" class="header_cart-no-cart-img">
+                        <span class="header_cart-list-no-cart-msg">
+                            Chưa có sản phẩm
+                        </span>
+                        <ul id="header-cart-list">
+
+                        </ul>
+                        <div class="go-to-cart-btn">
+                            <button onclick="moveToCart()">Đi đến giỏ hàng</button>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            <div class="heading-btn">
+                <button class="btn-login" onclick="moveToLogin()">Đăng nhập</button>
+            </div>
+
+            <div class="header-user">
+                <p class="header-fullname">Username</p>
+                <img src="" class="header-user-avatar">
+                <i class="fa-solid fa-chevron-down" id="user-action"></i>
+
+                <div class="user-menu">
+                    <span class="user-profile" onclick="showProfilePage()">Xem tài khoản</span>
+                    <span class="user-logout" onclick="logOut()">Đăng xuất</span>
+                </div>
+
+            </div>
+
+
+
+
+        </div>
+    </header>
+
+    <div class="search">
+        <div class="search-bar">
+            <div class="search-input">
+                <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 21 21" fill="none">
+                    <path
+                        d="M16.5769 8.03846C16.5769 12.478 12.978 16.0769 8.53846 16.0769C4.09894 16.0769 0.5 12.478 0.5 8.03846C0.5 3.59894 4.09894 0 8.53846 0C12.978 0 16.5769 3.59894 16.5769 8.03846ZM1.59915 8.03846C1.59915 11.8709 4.70598 14.9778 8.53846 14.9778C12.3709 14.9778 15.4778 11.8709 15.4778 8.03846C15.4778 4.20598 12.3709 1.09915 8.53846 1.09915C4.70598 1.09915 1.59915 4.20598 1.59915 8.03846Z"
+                        fill="#929090" />
+                    <line x1="13.63" y1="13.1775" x2="20.2069" y2="19.7544" stroke="#929090" stroke-width="2" />
+                </svg>
+                <input id="searchProductInput" type="text" placeholder="Tìm kiếm sản phẩm, môn thể thao...">
+            </div>
+            <button class="btn-search" onclick="searchProductByKeyword()">Tìm kiếm</button>
+        </div>
+
+        <div class="search-suggest">
+            <span>Đề xuất: </span>
+
+            <div class="suggest-list">
+                <span onclick="suggestSearching(this)">Quả bóng chuyền</span>
+                <span onclick="suggestSearching(this)">Giày chạy marathong</span>
+                <span onclick="suggestSearching(this)">Áo đá bóng</span>
+                <span onclick="suggestSearching(this)">Kính bơi</span>
+            </div>
+        </div>
+    </div>
+
+    <section id="slide">
+        <div class="slide-container">
+            <img src="/assets/img/slide/slide1.jpg" alt="">
+            <img src="/assets/img/slide/slide2.jpg" alt="">
+            <img src="/assets/img/slide/slide3.jpg" alt="">
+        </div>
+    </section>
+
+    <div class="sub-banner">
+        <div class="item">
+            <img src="/assets/img/icon/security.png" alt="">
+            <div class="text">
+                <p>BẢO HÀNH</p>
+                <p>ÍT NHẤT <span>1 NĂM</span></p>
+            </div>
+        </div>
+
+        <div class="item">
+            <img src="/assets/img/icon/undo.png" alt="">
+            <div class="text">
+                <p>ĐỔI/TRẢ MIỄN PHÍ</p>
+                <p>TRONG <span>30 NGÀY</span></p>
+            </div>
+        </div>
+
+        <div class="item">
+            <img src="/assets/img/icon/delivery-truck.png" alt="">
+            <div class="text">
+                <p><span>MIỄN PHÍ </span>VẬN CHUYỂN</p>
+                <p>ĐƠN TỪ 499.000Đ</p>
+            </div>
+        </div>
+    </div>
+
+    <section id="product">
+        <h1>SẢN PHẨM</h1>
+        <div class="product-container">
+            <div class="product-item product-football"
+                onclick="redirectToCategory('Bóng đá', '2c6933bc-96ac-47c8-921f-e275018b31e9')">
+                <span class="product-item-name">BÓNG ĐÁ</span>
+            </div>
+
+            <div class="product-item product-volleyball"
+                onclick="redirectToCategory('Bóng chuyền','42380a8f-4330-4b72-be77-df613b206bb8')">
+                <span class="product-item-name">BÓNG CHUYỀN</span>
+            </div>
+
+            <div class="product-item product-swimming"
+                onclick="redirectToCategory('Bơi lội','9adf2fdf-4dc8-4fec-85f5-42455815761b')">
+                <span class="product-item-name">BƠI LỘI</span>
+            </div>
+
+            <div class="product-item product-running"
+                onclick="redirectToCategory('Chạy bộ','fb441d06-8e04-4780-8659-a87258048a82')">
+                <span class="product-item-name">CHẠY BỘ</span>
+            </div>
+        </div>
+    </section>
+
+    <section id="service">
+        <h1>DỊCH VỤ</h1>
+        <div class="service-container">
+            <a href="/stadium.html">
+                <div class="book-football-field">
+                    <img src="/assets/img/others/football-field.png" alt="">
+                    <h2>Đặt sân bóng</h2>
+                </div>
+            </a>
+
+        </div>
+    </section>
+
+    <footer id="footer">
+        <div class="footer-product">
+            <h3>Sản phẩm</h3>
+            <ul class="">
+                <li><a href="">Quần áo</a></li>
+                <li><a href="">Giày</a></li>
+                <li><a href="">Bóng</a></li>
+                <li><a href="">Kính bơi</a></li>
+                <li><a href="">Phụ kiện</a></li>
+            </ul>
+
+        </div>
+        <div class="footer-sport">
+            <h3>Thể thao</h3>
+            <ul>
+                <li><a href="/category.html">Bóng đá</a></li>
+                <li><a href="">Bóng chuyền</a></li>
+                <li><a href="">Bơi lội</a></li>
+                <li><a href="">Chạy</a></li>
+            </ul>
+        </div>
+        <div class="footer-info">
+            <h3>Thông tin</h3>
+            <ul>
+                <li>Web bán hàng và dịch vụ thể thao</li>
+                <li>Nhóm 6 - lớp 144913</li>
+                <li>Nhập môn Công nghệ Phần mềm</li>
+                <li>GVHD: cô Bùi Thị Mai Anh</li>
+            </ul>
+        </div>
+        <div class="footer-members">
+            <h3>Thành viên</h3>
+            <ul>
+                <li>Đỗ Đức Long 20215609</li>
+                <li>Nguyễn Thanh Hải 20215571</li>
+                <li>Trần Ngọc Minh 20215617</li>
+                <li>Vũ Quang Nam 20215622</li>
+                <li>Đào Anh Quân 20215631</li>
+                <li>Vũ Văn Hùng 20215588</li>
+            </ul>
+        </div>
+        <div class="footer-follow-us">
+            <h3>Theo dõi chúng tôi</h3>
+            <ul>
+                <li><a href="https://www.facebook.com/" target="_blank"><img src="/assets/img/icon/fb.png" alt=""></a>
+                </li>
+                <li><a href="https://www.youtube.com/" target="_blank"><img src="/assets/img/icon/insta.png" alt=""></a>
+                </li>
+                <li><a href="https://www.instagram.com/" target="_blank"><img src="/assets/img/icon/youtube.png"
+                            alt=""></a></li>
+                <li><a href="https://twitter.com/?lang=vi" target="_blank"><img src="/assets/img/icon/twitter.png"
+                            alt=""></a></li>
+                <li><a href="https://www.tiktok.com/vi-VN/" target="_blank"><img src="/assets/img/icon/tiktok.png"
+                            alt=""></a>
+                </li>
+            </ul>
+        </div>
+    </footer>
+
+
+
+    <script src="/js/base.js"></script>
+    <script src="/js/script.js"></script>
+    <script>
+        function start() {
+            // getUser();
+            changeHeader();
+            updateCart();
+            if(isLogined) {
+                showShoppingCartMenu();
+            }
+        }
+
+        
+
+    </script>
+</body>
+
+
+
+</html>

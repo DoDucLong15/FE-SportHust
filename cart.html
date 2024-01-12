@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="/css/cart.css">
+    <link rel="stylesheet" href="/css/base.css">
+    <title>Hust Sport</title>
+</head>
+
+<body onload="start()">
+
+    <header>
+        <div class="header-left">
+            <a href="/index.html"><img src="/assets/img/logo/logo-full.png" alt=""></a>
+        </div>
+
+        <div class="header-right">
+            <ul class="menu">
+                <li><a href="/index.html">TRANG CHỦ</a></li>
+                <li class="menu-product">
+                    <a href="#product">
+                        SẢN PHẨM
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </a>
+
+                    <div class="sub-menu-product">
+                        <div onclick="redirectToCategory('Bóng đá', '2c6933bc-96ac-47c8-921f-e275018b31e9')">Bóng đá
+                        </div>
+                        <div onclick="redirectToCategory('Bóng chuyền','42380a8f-4330-4b72-be77-df613b206bb8')">Bóng
+                            chuyền</div>
+                        <div onclick="redirectToCategory('Bơi lội','9adf2fdf-4dc8-4fec-85f5-42455815761b')">Bơi lội
+                        </div>
+                        <div onclick="redirectToCategory('Chạy bộ','fb441d06-8e04-4780-8659-a87258048a82')">Chạy bộ
+                        </div>
+
+                    </div>
+
+                </li>
+                <li><a href="#footer">LIÊN HỆ</a></li>
+
+                <li class="header_cart">
+                    <span class="header_cart-navItem">GIỎ HÀNG</span>
+                </li>
+            </ul>
+            <div class="heading-btn">
+                <button class="btn-login">Đăng nhập</button>
+                <button class="btn-signup">Đăng ký</button>
+            </div>
+            <div class="header-user">
+                <p class="header-fullname">Username</p>
+                <img src="" class="header-user-avatar">
+                <i class="fa-solid fa-chevron-down" id="user-action"></i>
+                <div class="user-menu">
+                    <span class="user-profile" onclick="showProfilePage()">Xem tài khoản</span>
+                    <span class="user-logout" onclick="logOut()">Đăng xuất</span>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <div id="wrapper">
+        <section class="cart-wrapper">
+            <h1>Giỏ hàng của tôi</h1>
+            <div class="cart-container">
+                <div class="cart-container-left">
+                    <div class="cart-container-left-header">
+                        <div>Sản phẩm</div>
+                        <div>Kích thước</div>
+                        <div>Màu sắc</div>
+                        <div>Số lượng</div>
+                        <div>Đơn giá</div>
+                    </div>
+
+                    <div class="cart-container-left-item-list">
+                        
+                    </div>
+                </div>
+
+
+                <div class="cart-container-right">
+                    <h2>Tổng tiền giỏ hàng</h2>
+                    <div class="cart-container-right-info">
+                        <div class="cart-container-right-info-quantity">
+                            <h3>Số lượng:</h3>
+                            <p id="total-quantity">4</p>
+                        </div>
+                        <div class="cart-container-right-info-total">
+                            <h3>Thành tiền:</h3>
+                            <p id="total-price">0</p>
+                        </div>
+
+                        <div class="cart-container-right-info-discount">
+                            <h3>Mã giảm giá:</h3>
+                            <input type="text" class="cart-container-right-info-discount-input">
+                            <button class="cart-container-right-info-discount-confirm" onclick="addVoucherToShoppingCart(this)">Xác nhận</button>
+                        </div>
+
+                        <!-- <p id="apply-voucher-complete">Mã giảm giá VC001 đã được áp dụng thành công, đơn hàng được giảm 15.000đ</p> -->
+                    </div>
+
+                    <div class="cart-total-price-after-discount">
+                        <div class="cart-total-price-after-discount-wrap">
+                            <h3>Tổng cộng:</h3>
+                            <span id="total-price-after-discount">0</span>
+                        </div>
+                        <p>Miễn phí vận chuyển cho đơn hàng từ 2.000.000đ</p>
+                    </div>
+
+                    <button class="cart-payment-button" onclick="getTotalCost()">Thanh toán</button>
+
+                </div>
+
+            </div>
+
+            <a href="index.html" class="continueShopping">
+                <img src="/assets/img/icon/left-arrow.png" alt="">
+                <p>Tiếp tục mua hàng</p>
+            </a>
+        </section>
+
+        <div class="shopping-progress">
+            <div class="text">
+                <h3 class="progress-cart current-progress">Giỏ hàng</h3>
+                <h3 class="progress-payment">Thanh toán và Giao hàng</h3>
+            </div>
+            <div class="progress-bar">
+                <i class="progress-cart-circle fa-regular fa-circle current-progress"></i>
+                <span></span>
+                <i class="progress-payment-circle fa-regular fa-circle"></i>
+            </div>
+        </div>
+
+        <section class="payment-wrapper">
+            <h1>Thanh toán và Giao hàng</h1>
+            <div class="payment-container">
+                <div class="payment-left">
+                    <div class="user-infomation">
+                        <div class="user-infomation-header">
+                            <img src="/assets/img/icon/user.png" alt="">
+                            <h2>Thông tin khách hàng</h2>
+                        </div>
+                        <form>
+                            <input type="radio" id="user-info-option-1" name="user-info-select"
+                                onclick="toggleUserInfoInput(false)">
+                            <label for="user-info-option-1">Mặc định (Từ tài khoản đăng nhập)</label>
+                            <br>
+                            <input type="radio" id="user-info-option-2" name="user-info-select"
+                                onclick="toggleUserInfoInput(true)">
+                            <label for="user-info-option-2">Tùy chọn (Giao đến địa chỉ khác)</label>
+
+                        </form>
+
+
+                    </div>
+                    <div class="user-info-input">
+                        <div class="user-info-input-item">
+                            <h4>Họ tên <span>*</span></h4>
+                            <input type="text" class="user-info-name-input">
+                        </div>
+                        <div class="user-info-input-item">
+                            <h4>Số điện thoại <span>*</span></h4>
+                            <input type="text" class="user-info-phone-input">
+                        </div>
+                        <div class="user-info-input-item">
+                            <h4>Tỉnh/ Thành phố <span>*</span></h4>
+                            <select name="" id="provinces" onchange="getProvince(event)">
+                                <option value="0">Chọn tỉnh/ thành phố</option>
+                            </select>
+                        </div>
+                        <div class="user-info-input-item">
+                            <h4>Quận/ Huyện <span>*</span></h4>
+                            <select name="" id="districts" onchange="getDistrict(event)">
+                                <option value="0">Chọn quận/ huyện</option>
+                            </select>
+                        </div>
+                        <div class="user-info-input-item">
+                            <h4>Phường/ Xã <span>*</span></h4>
+                            <select name="" id="wards">
+                                <option value="0">Chọn phường/ xã </option>
+                            </select>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="payment-right">
+                    <div class="payment-method">
+                        <div class="payment-method-header">
+                            <img src="/assets/img/icon/dollar.png" alt="">
+                            <h3>Phương thức thanh toán</h3>
+                        </div>
+                        <ul>
+                            <li>
+                                <input type="radio" id="payment-method-option-1" name="payment-method-select">
+                                <label for="payment-method-option-1">Thanh toán khi nhận hàng</label>
+                            </li>
+                            <li>
+                                <input type="radio" id="payment-method-option-2" name="payment-method-select">
+                                <label for="payment-method-option-2">Thanh toán online</label>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="delivery-method">
+                        <div class="delivery-method-header">
+                            <img src="/assets/img/icon/delivery-truck.png" alt="">
+                            <h3>Phương thức vận chuyển</h3>
+                        </div>
+                        <ul>
+                            <li>
+                                <input type="radio" id="delivery-method-option-1" name="delivery-method-select">
+                                <label for="delivery-method-option-1">Nhanh</label>
+                            </li>
+                            <li>
+                                <input type="radio" id="delivery-method-option-2" name="delivery-method-select">
+                                <label for="delivery-method-option-2">Hỏa tốc</label>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="bill-detail">
+                        <div class="bill-detail-header">
+                            <img src="/assets/img/icon/invoices.png" alt="">
+                            <h3>Chi tiết thanh toán</h3>
+                        </div>
+                        <div class="bill-detail-content">
+                            <div class="bill-cart-price">
+                                <h5>Tổng tiền hàng:</h5>
+                                <span>0</span>
+                            </div>
+                            <div class="shipping-cost">
+                                <h5>Phí vận chuyển:</h5>
+                                <span>30.000đ</span>
+                            </div>
+                            <div class="bill-total">
+                                <h5>Tổng thanh toán:</h5>
+                                <span>0</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button class="order-button" onclick="getBill()">Đặt hàng</button>
+                </div>
+            </div>
+            <div class="return-cart">
+                <img src="/assets/img/icon/left-arrow.png" alt="">
+                <p>Quay lại giỏ hàng</p>
+            </div>
+
+        </section>
+    </div>
+
+
+    <footer id="footer">
+        <div class="footer-product">
+            <h3>Sản phẩm</h3>
+            <ul class="">
+                <li><a href="">Quần áo</a></li>
+                <li><a href="">Giày</a></li>
+                <li><a href="">Bóng</a></li>
+                <li><a href="">Kính bơi</a></li>
+                <li><a href="">Phụ kiện</a></li>
+            </ul>
+
+        </div>
+        <div class="footer-sport">
+            <h3>Thể thao</h3>
+            <ul>
+                <li><a href="/category.html">Bóng đá</a></li>
+                <li><a href="">Bóng chuyền</a></li>
+                <li><a href="">Bơi lội</a></li>
+                <li><a href="">Chạy</a></li>
+            </ul>
+        </div>
+        <div class="footer-info">
+            <h3>Thông tin</h3>
+            <ul>
+                <li>Web bán hàng và dịch vụ thể thao</li>
+                <li>Nhóm 6 - lớp 144913</li>
+                <li>Nhập môn Công nghệ Phần mềm</li>
+                <li>GVHD: cô Bùi Thị Mai Anh</li>
+            </ul>
+        </div>
+        <div class="footer-members">
+            <h3>Thành viên</h3>
+            <ul>
+                <li>Đỗ Đức Long 20215609</li>
+                <li>Nguyễn Thanh Hải 20215571</li>
+                <li>Trần Ngọc Minh 20215617</li>
+                <li>Vũ Quang Nam 20215622</li>
+                <li>Đào Anh Quân 20215631</li>
+                <li>Vũ Văn Hùng 20215588</li>
+            </ul>
+        </div>
+        <div class="footer-follow-us">
+            <h3>Theo dõi chúng tôi</h3>
+            <ul>
+                <li><a href="https://www.facebook.com/" target="_blank"><img src="/assets/img/icon/fb.png" alt=""></a>
+                </li>
+                <li><a href="https://www.youtube.com/" target="_blank"><img src="/assets/img/icon/insta.png" alt=""></a>
+                </li>
+                <li><a href="https://www.instagram.com/" target="_blank"><img src="/assets/img/icon/youtube.png"
+                            alt=""></a></li>
+                <li><a href="https://twitter.com/?lang=vi" target="_blank"><img src="/assets/img/icon/twitter.png"
+                            alt=""></a></li>
+                <li><a href="https://www.tiktok.com/vi-VN/" target="_blank"><img src="/assets/img/icon/tiktok.png"
+                            alt=""></a>
+                </li>
+            </ul>
+        </div>
+    </footer>
+
+    
+    <script src="/js/cart_payment.js"></script>
+    
+    <!-- <script src="/js/base.js"></script> -->
+</body>
+
+
+
+</html>

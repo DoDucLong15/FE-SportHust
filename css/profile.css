@@ -1,0 +1,695 @@
+/* profile */
+#profile-container {
+    position: relative;
+    margin: 100px 88px 40px;
+    display: flex;
+    gap: 20px;
+    border: 1px solid #b8b8b8;
+    border-radius: 20px;
+}
+
+.profile-left {
+    width: 20%;
+    border-right: 1px solid #b8b8b8;
+}
+
+.profile-left-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 16px 12px;
+}
+
+.profile-left-header h2 {
+    color: #000;
+    font-family: Roboto;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 48px;
+}
+
+.profile-left-header img {
+    width: 28px;
+}
+
+.profile-left-tab-list {
+    display: flex;
+    flex-direction: column;
+    gap: 26px;
+}
+
+.tab {
+    height: 65px;
+    background-color: rgba(10, 167, 236, 0.41);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #000;
+    font-family: Roboto;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 32px;
+    cursor: pointer;
+}
+
+.tab:hover {
+    background-color: #1C8ED7;
+    color: #fff;
+}
+
+.profile-right {
+    width: 80%;
+}
+
+.hidden {
+    display: none;
+}
+
+.tab-content {
+    position: relative;
+    width: 100%;
+    height: 600px;
+    padding: 24px 60px 24px 40px;
+    display: none;
+}
+
+.tab-title {
+    color: #000;
+    font-family: Roboto;
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 48px;
+}
+
+.tab-description {
+    margin: 8px 0 30px;
+    color: #000;
+    font-family: Roboto;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 32px;
+}
+
+.profile-content .myProfile-info {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.myProfile-info .info-input {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.info-input-edit {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+}
+
+.info-input-item {
+    width: 100%;
+    display: flex;
+    gap: 26px;
+    align-items: center;
+    margin-bottom: 50px;
+}
+
+.info-input-item p {
+    width: 150px;
+    color: #000;
+    font-family: Roboto;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 32px;
+}
+
+.info-input-item input {
+    width: 303px;
+    height: 36px;
+    padding: 0 4px;
+}
+
+.change-info {
+    border-radius: 10px;
+    background: #1C8ED7;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.info-avatar {
+    position: absolute;
+    top: 50%;
+    right: 50px;
+    transform: translateY(-50%);
+    width: 350px;
+    height: 408px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 32px 48px;
+    border: 1px solid #CECECE;
+}
+
+.info-avatar-img {
+    width: 222px;
+    height: 222px;
+    background-color: #D9D9D9;
+    border-radius: 50%;
+}
+
+.info-avatar p {
+    color: #000;
+    font-family: Roboto;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 32px;
+}
+
+.info-avatar .change-avatar {
+    width: 132px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    background: #1C8ED7;
+    border: none;
+    color: #FFF;
+    font-family: Roboto;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 32px;
+    cursor: pointer;
+}
+
+.change-info:hover,
+.info-avatar button:hover {
+    opacity: 0.8;
+}
+
+.change-info-btn {
+    border-radius: 10px;
+    background: #1C8ED7;
+    color: #FFF;
+    font-family: Roboto;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 32px;
+    border: none;
+    padding: 0 8px;
+    cursor: pointer;
+}
+
+
+/* change user info panel */
+.change-user-info-item input {
+    width: 384px;
+    height: 36px;
+    padding: 0 8px;
+    border: 1px solid #BFBFBF;
+}
+
+.change-user-info-item input::placeholder {
+    color: #B8B8B8;
+    font-family: Roboto;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 32px;
+    /* 200% */
+}
+
+
+
+/* ------------------------------------------------ */
+/* tab2 */
+.add-new-adress {
+    position: absolute;
+    top: 80px;
+    right: 64px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+}
+
+
+.add-new-adress img {
+    width: 27px;
+}
+
+.add-new-adress p {
+    color: #F00;
+    font-family: Roboto;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 32px;
+}
+
+.address-list {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    border: 1px solid #B7B7B7;
+}
+
+.address-item {
+    position: relative;
+    width: 100%;
+    height: 68px;
+    padding: 18px 20px 18px 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.address-item-left {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.address-item-selected {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 1px solid #aaa;
+    cursor: pointer;
+}
+
+.address-item-info {
+    color: #000;
+    font-family: Roboto;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 32px;
+    cursor: pointer;
+}
+
+.address-item-right {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    margin-right: 40px;
+}
+
+.address-item-right img {
+    width: 24px;
+}
+
+
+.address-item-delete {
+    position: absolute;
+    top: 22px;
+    right: 8px;
+    cursor: pointer;
+}
+
+.address-default {
+    width: 115px;
+    height: 36px;
+    border-radius: 8px;
+    background-color: #1C8ED7;
+    text-align: center;
+    color: #FFF;
+    font-family: Roboto;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 36px;
+    display: none;
+}
+
+.default {
+    background-color: #1C8ED7;
+    border: none;
+}
+
+
+.update-address-btn {
+    height: 36px;
+    border-radius: 8px;
+    border: none;
+    background-color: #1C8ED7;
+    text-align: center;
+    color: #FFF;
+    font-family: Roboto;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 36px;
+    padding: 0 8px;
+    margin-top: 30px;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    display: none;
+}
+
+.update-address-btn:hover {
+    opacity: 0.7;
+    cursor: pointer;
+
+}
+
+/* tab3 */
+
+.password-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 88px;
+}
+
+.password-container-left {
+    position: relative;
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+}
+
+.password-container-right {
+    width: 30%;
+}
+
+.password-container-right img {
+    width: 307px;
+    height: 264px;
+}
+
+.current-password,
+.new-password,
+.new-password-again {
+    display: grid;
+    align-items: center;
+    justify-content: space-between;
+    grid-template-columns: 40% 40% 5%;
+}
+
+.current-password input,
+.new-password input,
+.new-password-again input {
+    width: 303px;
+    height: 36px;
+    padding: 0 35px 0 8px;
+}
+
+.current-password p,
+.new-password p,
+.new-password-again p {
+    color: #000;
+    font-family: Roboto;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 32px;
+}
+
+
+
+#confirm-password-btn {
+    position: absolute;
+    bottom: -100px;
+    left: 50%;
+    height: 36px;
+    border-radius: 8px;
+    border: none;
+    background-color: #1C8ED7;
+    text-align: center;
+    color: #FFF;
+    font-family: Roboto;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 36px;
+    padding: 0 8px;
+}
+
+#confirm-password-btn:hover {
+    opacity: 0.8;
+    cursor: pointer;
+}
+
+
+
+
+
+.active-tab {
+    background-color: #1C8ED7;
+    color: #fff;
+}
+
+/* Hide all tab content by default */
+.tab-content {
+    display: none;
+}
+
+/* Display the active tab content */
+.tab-content.active {
+    display: block;
+}
+
+
+/* Thêm địa chỉ mới */
+.change-user-info-panel,
+.new-address-panel,
+.bill-detail-panel {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.4);
+    /* display: flex; */
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.change-user-info-panel .container,
+.new-address-panel .container {
+    position: relative;
+    width: 516px;
+    height: 362px;
+    border-radius: 20px;
+    background: #FFF;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 33px 66px;
+    animation: panelFadein ease 0.5s;
+}
+
+.change-user-info-closeBtn,
+.new-address-closeBtn,
+.bill-detail-closeBtn {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+}
+
+.change-user-info-closeBtn img,
+.new-address-closeBtn img,
+.bill-detail-closeBtn img {
+    width: 20px;
+    cursor: pointer;
+}
+
+.change-user-info-panel .container h1,
+.new-address-panel .container h1,
+.bill-detail-panel .container h1 {
+    color: #000;
+    font-family: Roboto;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 32px;
+}
+
+.change-user-info-input,
+.new-address-input {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+}
+
+.new-address-input-item {
+    width: 384px;
+    height: 36px;
+}
+
+.new-address-input-item select {
+    width: 100%;
+    height: 100%;
+    border: 1px solid #BFBFBF;
+    color: #5a5a5a;
+    font-family: Roboto;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 32px;
+}
+
+.change-user-info-panel .container button,
+.new-address-panel .container button {
+    width: 100px;
+    height: 35px;
+    border-radius: 10px;
+    border: none;
+    background: #1C8ED7;
+    color: #FFF;
+    font-family: Roboto;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 32px;
+    cursor: pointer;
+}
+
+@keyframes panelFadein {
+    from {
+        opacity: 0;
+        transform: translateY(-140px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* tab4 */
+.bill-container table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.bill-container table tr th {
+    height: 40px;
+    border: 1px solid #888;
+    text-align: center;
+    padding: 8px 0;
+    background-color: #90CAEE;
+    color: #1B3764;
+    font-family: Roboto;
+    font-size: 20px;
+    font-style: bold;
+    font-weight: 700;
+    line-height: 32px;
+}
+
+.bill-container table tr td {
+    padding: 8px;
+    text-align: center;
+    border: 1px solid #888;
+}
+
+.bill-container table tr:hover {
+    /* background-color: #ddd; */
+}
+
+.bill-more-action {
+    position: relative;
+}
+
+.bill-more-action img {
+    cursor: pointer;
+}
+
+.bill-more-action-panel {
+    position: absolute;
+    right: 20px;
+    top: 30px;
+    width: 150px;
+    height: 90px;
+    border: 1px solid #DEDEDE;
+    background: #FFF;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    z-index: 2;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.bill-more-action-option {
+    height: 50%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #000;
+    font-family: Inter;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.bill-more-action-option:hover {
+    background-color: #ddd;
+    cursor: pointer;
+
+}
+
+#bill-table-pagination {
+    position: absolute;
+    right: 60px;
+    bottom: 30px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+#bill-table-pagination button {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #ccc;
+    background-color: #1C8ED7;
+    color: #fff;
+    border-radius: 6px;
+}
+
+#bill-table-pagination button:hover {
+    cursor: pointer;
+    opacity: 0.8;
+}
+
+.bill-detail-panel .container {
+    position: relative;
+    width: 516px;
+    height: 400px;
+    border-radius: 20px;
+    background: #FFF;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 33px 66px;
+    animation: panelFadein ease 0.5s;
+}

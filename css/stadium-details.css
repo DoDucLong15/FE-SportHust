@@ -1,0 +1,169 @@
+.stadium-detail-container {
+  height: 500px;
+  margin: 100px 0 30px;
+  padding: 12px 100px;
+  display: grid;
+  grid-template-columns: 50% 50%;
+}
+
+
+/* stadium-detail-container */
+.stadium-detail-left {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/*  */
+
+.stadium-detail-img-wrap {
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+}
+
+.stadium-detail-img-wrap img {
+  width: 400px;
+  height: 400px;
+  object-fit: contain;
+  padding: 5px;
+  text-align: center;
+}
+
+.stadium-detail-right {
+  display: flex;
+  align-items: left;
+  /* justify-content: space-between; */
+  flex-direction: column;
+  gap: 50px;
+  padding: 60px 0;
+}
+
+.stadium-detail-right button {
+  width: 100px;
+  /* height: 3px; */
+  border-radius: 4px;
+  border: none;
+  background-color: #B93737;
+  color: #fff;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 800;
+  padding: 8px 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.stadium-detail-right button:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+.stadium-detail-name {
+  color: #4B5463;
+  font-family: Inter;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: 120%;
+}
+
+.stadium-detail-address {
+  color: #4B5463;
+  font-family: Inter;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 150%;
+}
+
+.stadium-detail-right-bottom {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+.stadium-detail-phoneNumber {
+  align-items: center;
+  gap: 12px;
+  display: none;
+  transition: 0.5s panelFadein;
+}
+
+.stadium-detail-phoneNumber h2 {
+  color: #4B5463;
+  font-family: Inter;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 120%;
+}
+
+
+.stadium-detail-phoneNumber span {
+  color: #39a5e4;
+  font-weight: 600;
+}
+
+.stadium-detail-address span {
+  color: #000000;
+}
+
+.stadium-detail-price {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+
+
+.stadium-detail-address {}
+
+.stadium-detail-price h2 {
+  color: #4B5463;
+  font-family: Inter;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 120%;
+
+}
+
+.stadium-detail-price span {
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 120%;
+  color: #B93737;
+}
+
+
+
+
+
+.stadium-detail {
+  padding: 30px 50px;
+  border-top: 1px solid #ccc;
+  margin-bottom: 20px;
+}
+
+.stadium-detail h1 {
+  margin-bottom: 24px;
+  text-align: center;
+  font-family: Inter;
+  font-size: 40px;
+  font-style: bold;
+  font-weight: 600;
+  line-height: 120%;
+}
+
+#stadium-detail-description {
+  font-family: Inter;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+  text-align: justify;
+}

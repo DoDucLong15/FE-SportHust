@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="/css/admin.css">
+    <link rel="stylesheet" href="/css/base.css">
+    <title>Hust Sport</title>
+</head>
+
+<body>
+    <header>
+        <div class="header-left">
+            <a href="/index.html"><img src="/assets/img/logo/logo-full.png" alt=""></a>
+        </div>
+
+        <div class="header-right">
+            <ul class="menu">
+                <li><a href="/index.html">TRANG CHỦ</a></li>
+                <li class="menu-product">
+                    <a href="#product">
+                        SẢN PHẨM
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </a>
+
+                    <div class="sub-menu-product">
+                        <div onclick="redirectToCategory('Bóng đá', '2c6933bc-96ac-47c8-921f-e275018b31e9')">Bóng đá
+                        </div>
+                        <div onclick="redirectToCategory('Bóng chuyền','42380a8f-4330-4b72-be77-df613b206bb8')">Bóng
+                            chuyền</div>
+                        <div onclick="redirectToCategory('Bơi lội','9adf2fdf-4dc8-4fec-85f5-42455815761b')">Bơi lội
+                        </div>
+                        <div onclick="redirectToCategory('Chạy bộ','fb441d06-8e04-4780-8659-a87258048a82')">Chạy bộ
+                        </div>
+
+                    </div>
+
+                </li>
+                <li><a href="#footer">LIÊN HỆ</a></li>
+                <li class="header_cart">
+                    <span class="header_cart-navItem">GIỎ HÀNG</span>
+
+
+                </li>
+            </ul>
+
+            <div class="heading-btn">
+                <button class="btn-login">Đăng nhập</button>
+            </div>
+
+            <div class="header-user">
+                <p class="header-fullname">Username</p>
+                <img src="" class="header-user-avatar">
+                <i class="fa-solid fa-chevron-down" id="user-action"></i>
+                <div class="user-menu">
+                    <span class="user-profile" onclick="showProfilePage()">Xem tài khoản</span>
+                    <span class="user-logout" onclick="logOut()">Đăng xuất</span>
+                </div>
+            </div>
+
+        </div>
+    </header>
+
+    <section id="admin-container">
+        <div class="admin-page-left">
+            <div class="admin-page-left-header">
+                <img src="/assets/img/icon/user.png" alt="">
+                <h2>Admin Dashboard</h2>
+            </div>
+
+            <div class="admin-left-tab-list">
+                <div class="tab" onclick="changeTab('tab1')">Quản lý người dùng</div>
+                <div class="tab" onclick="changeTab('tab2')">Quản lý sản phẩm</div>
+                <div class="tab" onclick="changeTab('tab3')">Khuyến mãi và Giảm giá</div>
+                <div class="tab" onclick="changeTab('tab4')">Thống kê</div>
+
+            </div>
+        </div>
+
+        <div class="admin-page-right">
+            <div id="tab1" class="tab-content user-management">
+                <h1 class="admin-tab-title">Người dùng</h1>
+                <div class="user-search-bar">
+                    <img src="/assets/img/icon/search.png" alt="">
+                    <input type="text" class="user-search-input" placeholder="Tìm kiếm theo username, email...">
+                </div>
+                <table class="user-table">
+                    <thead>
+                        <tr>
+                            <th>Tên đăng nhập</th>
+                            <th>Họ tên</th>
+                            <th>Email</th>
+                            <th>SĐT</th>
+                            <th>Trạng thái</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+
+                    </tbody>
+                </table>
+                <div id="user-table-pagination">
+                    <button onclick="changeUserPage(-1)"><i class="fa-solid fa-angle-left"></i></button>
+                    <span id="currentUserPage">Trang 1</span>
+                    <button onclick="changeUserPage(1)"><i class="fa-solid fa-angle-right"></i></button>
+                </div>
+            </div>
+
+            <div id="tab2" class="tab-content product-management">
+                <h1 class="admin-tab-title">Sản phẩm</h1>
+                <div class="product-management-top">
+                    <div class="product-search-bar">
+                        <img src="/assets/img/icon/search.png" alt="">
+                        <input type="text" class="product-search-input" placeholder="Tìm kiếm sản phẩm">
+                    </div>
+
+                    <div class="product-type">
+                        <select name="product-type" id="" onchange="getProductBySportName(event)">
+                            <option value="0">Phân loại</option>
+                            <option value="Bóng đá">Bóng Đá</option>
+                            <option value="Bóng chuyền">Bóng Chuyền</option>
+                            <option value="Bơi">Bơi lội</option>
+                            <option value="Chạy bộ">Chạy bộ</option>
+                        </select>
+                    </div>
+
+                    <div class="add-new-product-btn" onclick="showAddProductPanel()">
+                        <img src="/assets/img/icon/add-green.png" alt="">
+                        <span>Thêm sản phẩm mới</span>
+                    </div>
+
+                </div>
+
+                <table class="product-table">
+                    <thead>
+                        <tr>
+                            <th>STT</th>
+                            <th>Tên sản phẩm</th>
+                            <th>Phân loại</th>
+                            <th>Nhãn hiệu</th>
+                            <th>Số lượng</th>
+                            <th>Giá</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+
+                    </tbody>
+
+                </table>
+                <div id="product-table-pagination">
+                    <button onclick="changeProductPage(-1)"><i class="fa-solid fa-angle-left"></i></button>
+                    <span id="currentProductPage">Trang 1</span>
+                    <button onclick="changeProductPage(1)"><i class="fa-solid fa-angle-right"></i></button>
+                </div>
+            </div>
+
+            <div id="tab3" class="tab-content promotion">
+                <h1 class="admin-tab-title">Khuyến mãi và Giảm giá</h1>
+                <div class="promotion-voucher-tables">
+                    <div class="table-left">
+                        <h3>Các sản phẩm khuyến mãi</h3>
+
+                        <div class="add-new-promotion" onclick="showAddPromotionPanel()">
+                            <img src="/assets/img/icon/add-green.png" alt="">
+                            <span>Thêm khuyến mãi mới</span>
+                        </div>
+
+                        <table class="promotion-table">
+
+                            <thead>
+                                <tr>
+                                    <th>Tên sản phẩm</th>
+                                    <th>Giảm giá</th>
+                                    <th>Ngày hết hạn</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+
+
+                            </tbody>
+
+                        </table>
+
+                        <div id="promotion-table-pagination">
+                            <button onclick="changePromotionPage(-1)"><i class="fa-solid fa-angle-left"></i></button>
+                            <span id="currentPromotionPage">Trang 1</span>
+                            <button onclick="changePromotionPage(1)"><i class="fa-solid fa-angle-right"></i></button>
+                        </div>
+
+                    </div>
+
+                    <div class="table-right">
+                        <h3>Danh sách voucher</h3>
+
+                        <div class="add-new-voucher" onclick="showAddVoucherPanel()">
+                            <img src="/assets/img/icon/add-green.png" alt="">
+                            <span>Thêm voucher</span>
+                        </div>
+
+                        <table class="voucher-table">
+                            <thead>
+                                <tr>
+                                    <th>Mã voucher</th>
+                                    <th>Giá trị giảm</th>
+                                    <th>Ngày hết hạn</th>
+
+                                </tr>
+                            </thead>
+
+                            <tbody>
+
+                            </tbody>
+
+                        </table>
+
+                        <div id="voucher-table-pagination">
+                            <button onclick="changeVoucherPage(-1)"><i class="fa-solid fa-angle-left"></i></button>
+                            <span id="currentVoucherPage">Trang 1</span>
+                            <button onclick="changeVoucherPage(1)"><i class="fa-solid fa-angle-right"></i></button>
+                        </div>
+                    </div>
+
+
+                </div>
+
+
+
+            </div>
+
+            <div id="tab4" class="tab-content statistics">
+                <h1 class="admin-tab-title">Thống kê</h1>
+                <div class="statistics-container">
+                    <div class="statistics-left">
+                        <div class="statistics-revenue">
+                            <h2>Doanh thu</h2>
+                            <div class="statistics-revenue-body">
+                                <div class="statistics-revenue-body-content">
+                                    <div class="statistics-total-revenue">
+                                        <h3>Tổng doanh thu</h3>
+                                        <span id="total-revenue"></span>
+                                    </div>
+
+                                    <div class="statistics-revenue-of-month">
+                                        <h3>Xem doanh thu</h3>
+                                        <div class="revenue-of-month-body">
+                                            <div class="input">
+                                                <div class="input-month">
+                                                    <h4>Tháng</h4>
+                                                    <select name="" id="revenue-of-time-month"
+                                                        onchange="getRevenueOfMonth()">
+                                                        <option value="1">1</option>
+                                                        <option value="2">2</option>
+                                                        <option value="3">3</option>
+                                                        <option value="4">4</option>
+                                                        <option value="5">5</option>
+                                                        <option value="6">6</option>
+                                                        <option value="7">7</option>
+                                                        <option value="8">8</option>
+                                                        <option value="9">9</option>
+                                                        <option value="10">10</option>
+                                                        <option value="11">11</option>
+                                                        <option value="12">12</option>
+                                                    </select>
+                                                </div>
+                                                <div class="input-year">
+                                                    <h4>Năm</h4>
+                                                    <select name="" id="revenue-of-time-year"
+                                                        onchange="getRevenueOfMonth()">
+                                                        <option value="2023">2023</option>
+                                                        <option value="2024">2024</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+
+                                            <span id="revenue-of-month-display"></span>
+                                        </div>
+
+
+                                    </div>
+
+                                </div>
+                                <img src="/assets/img/others/revenue-img.png" alt="">
+                            </div>
+                        </div>
+
+                        <div class="statistics-sold">
+                            <div class="statistics-sold-top">
+                                <h2>Số lượng đã bán</h2>
+                                <!-- <div class="statistics-sold-date">
+                                    <div class="statistics-sold-month">
+                                        <select name="" id="">
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                            <option value="5">5</option>
+                                            <option value="6">6</option>
+                                            <option value="7">7</option>
+                                            <option value="8">8</option>
+                                            <option value="9">9</option>
+                                            <option value="10">10</option>
+                                            <option value="11">11</option>
+                                            <option value="12">12</option>
+                                        </select>
+                                    </div>
+                                    <div class="statistics-sold-year">
+                                        <select name="" id="">
+                                            <option value="">2022</option>
+                                            <option value="">2023</option>
+                                            <option value="">2024</option>
+
+                                        </select>
+                                    </div>
+                                </div> -->
+                            </div>
+
+                            <div class="statistics-sold-body">
+                                <div class="statistics-sold-item">
+                                    <div class="statistics-sold-item-name">
+                                        <img src="/assets/img/icon/football.png" alt="">
+                                        <span>Bóng đá</span>
+                                    </div>
+                                    <h1></h1>
+                                    <span>Sản phẩm</span>
+                                </div>
+
+                                <div class="statistics-sold-item">
+                                    <div class="statistics-sold-item-name">
+                                        <img src="/assets/img/icon/volleyball.png" alt="">
+                                        <span>Bóng chuyền</span>
+                                    </div>
+                                    <h1></h1>
+                                    <span>Sản phẩm</span>
+                                </div>
+
+                                <div class="statistics-sold-item">
+                                    <div class="statistics-sold-item-name">
+                                        <img src="/assets/img/icon/swimmer.png" alt="">
+                                        <span>Bơi lội</span>
+                                    </div>
+                                    <h1></h1>
+                                    <span>Sản phẩm</span>
+                                </div>
+
+                                <div class="statistics-sold-item">
+                                    <div class="statistics-sold-item-name">
+                                        <img src="/assets/img/icon/runner.png" alt="">
+                                        <span>Chạy bộ</span>
+                                    </div>
+                                    <h1></h1>
+                                    <span>Sản phẩm</span>
+                                </div>
+
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="statistics-right statistics-selling-products">
+                        <h1>Sản phẩm bán chạy</h1>
+                        <ul class="selling-products-list">
+
+                        </ul>
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+
+        </div>
+
+        <div class="user-detail-panel">
+            <div class="container">
+                <div class="user-detail-closeBTN" onclick="hideUserDetailPanel()">
+                    <img src="/assets/img/icon/close.png" alt="">
+                </div>
+                <h1>Thông tin chi tiết</h1>
+                <div class="user-detail-list-item">
+                    <div class="row">
+                        <div class="user-detail-item">
+                            <h5>ID:</h5>
+                            <span class="user-detail-ID"></span>
+                        </div>
+
+                        <div class="user-detail-item">
+                            <h5>Tên đăng nhập:</h5>
+                            <span class="user-detail-login"></span>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="user-detail-item">
+                            <h5>Họ tên:</h5>
+                            <span class="user-detail-name"></span>
+                        </div>
+
+                        <div class="user-detail-item">
+                            <h5>Tỉnh/TP:</h5>
+                            <span class="user-detail-city"></span>
+                        </div>
+                    </div>
+
+
+                    <div class="row">
+                        <div class="user-detail-item">
+                            <h5>Email:</h5>
+                            <span class="user-detail-email"></span>
+                        </div>
+
+                        <div class="user-detail-item">
+                            <h5>Quận/Huyện:</h5>
+                            <span class="user-detail-district"></span>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="user-detail-item">
+                            <h5>SĐT:</h5>
+                            <span class="user-detail-phoneNumber"></span>
+                        </div>
+
+                        <div class="user-detail-item">
+                            <h5>Xã/Phường:</h5>
+                            <span class="user-detail-ward"></span>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="user-detail-item">
+                            <h5>Trạng thái:</h5>
+                            <span class="user-detail-status"></span>
+                        </div>
+
+                        <div class="user-detail-item">
+                            <h5>Ngày tạo TK:</h5>
+                            <span class="user-detail-createDate"></span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="add-new-product-panel">
+            <div class="container">
+                <div class="add-new-product-closeBTN" onclick="hideAddProductPanel()">
+                    <img src="/assets/img/icon/close.png" alt="">
+                </div>
+                <h1>Thêm sản phẩm mới</h1>
+                <div class="add-new-product-body">
+                    <div class="item">
+                        <h5>Tên sản phẩm</h5>
+                        <input type="text" name="add-product-name" id="add-product-name" class="wid100 one-line">
+                    </div>
+
+                    <div class="item">
+                        <h5>Mô tả</h5>
+                        <textarea name="add-product-description" id="add-product-description" class="wid100 three-line"
+                            rows="3"></textarea>
+                    </div>
+
+                    <div class="item">
+                        <h5>Hình ảnh</h5>
+                        <input type="text" name="add-product-image" id="add-product-image">
+                    </div>
+
+                    <div class="item">
+                        <h5>Phân loại</h5>
+                        <select name="add-product-sportName" id="add-product-sportName" class="wid30 one-line">
+                            <option value="2c6933bc-96ac-47c8-921f-e275018b31e9">Bóng đá</option>
+                            <option value="42380a8f-4330-4b72-be77-df613b206bb8">Bóng Chuyền</option>
+                            <option value="9adf2fdf-4dc8-4fec-85f5-42455815761b">Bơi lội</option>
+                            <option value="fb441d06-8e04-4780-8659-a87258048a82">Chạy bộ</option>
+                        </select>
+                    </div>
+
+                    <div class="wrapper-item one-line">
+                        <div class="item">
+                            <h5>Nhãn hiệu</h5>
+                            <input type="text" name="add-product-brand" id="add-product-brand" class="wid30">
+                        </div>
+                        <div class="item">
+                            <h5>Giá</h5>
+                            <input type="text" name="add-product-price" id="add-product-price" class="wid30">
+                        </div>
+
+                    </div>
+
+                    <div class="item">
+                        <h5>Số lượng</h5>
+                        <input type="text" name="add-product-quantity" id="add-product-quantity" class="wid15">
+                    </div>
+
+
+                    <div class="item">
+                        <h5>Loại sản phẩm</h5>
+                        <select name="add-product-type" id="add-product-type" class="wid30 one-line">
+                            <option value="1">Quần áo</option>
+                            <option value="2">Giày</option>
+                            <option value="3">Bóng</option>
+                            <option value="4">Kính bơi</option>
+                        </select>
+                    </div>
+
+
+                    <div class="item">
+                        <h5>Kích thước</h5>
+                        <input type="text" name="add-product-size-list" id="add-product-size-list">
+
+                    </div>
+
+                    <div class="item">
+                        <h5>Màu sắc</h5>
+                        <input type="text" placeholder="Nhập danh sách màu sắc theo mã hexa (VD: #ABABAB)"
+                            name="add-product-color-list" id="add-product-color-list">
+
+                    </div>
+
+                </div>
+
+                <button class="add-product-to-api" onclick="addNewProductToAPI()">Xác nhận</button>
+
+            </div>
+        </div>
+
+        <div class="update-product-panel">
+            <div class="container">
+                <div class="update-product-closeBTN" onclick="hideUpdateProductPanel()">
+                    <img src="/assets/img/icon/close.png" alt="">
+                </div>
+                <h1>Cập nhật sản phẩm</h1>
+                <div class="update-product-body">
+                    <div class="item">
+                        <h5>ID sản phẩm</h5>
+                        <input type="text" name="update-product-id" id="update-product-id" class="wid100 one-line">
+                    </div>
+
+                    <div class="item">
+                        <h5>Tên sản phẩm</h5>
+                        <input type="text" name="update-product-name" id="update-product-name" class="wid100 one-line">
+                    </div>
+
+                    <div class="item">
+                        <h5>Mô tả</h5>
+                        <textarea name="update-product-description" id="update-product-description"
+                            class="wid100 three-line" rows="3"></textarea>
+                    </div>
+
+                    <div class="item">
+                        <h5>Hình ảnh</h5>
+                        <input type="text" name="update-product-image" id="update-product-image">
+                    </div>
+
+                    <div class="wrapper-item one-line">
+                        <div class="item">
+                            <h5>Phân loại</h5>
+                            <select name="update-product-sportName" id="update-product-sportName"
+                                class="wid30 one-line">
+                                <option value="2c6933bc-96ac-47c8-921f-e275018b31e9">Bóng đá</option>
+                                <option value="42380a8f-4330-4b72-be77-df613b206bb8">Bóng Chuyền</option>
+                                <option value="9adf2fdf-4dc8-4fec-85f5-42455815761b">Bơi lội</option>
+                                <option value="fb441d06-8e04-4780-8659-a87258048a82">Chạy bộ</option>
+                            </select>
+                        </div>
+                        <div class="item">
+                            <h5>Loại sản phẩm</h5>
+                            <select name="update-product-type" id="update-product-type" class="wid30 one-line">
+                                <option value="1">Quần áo</option>
+                                <option value="2">Giày</option>
+                                <option value="3">Bóng</option>
+                                <option value="4">Bơi lội</option>
+                            </select>
+                        </div>
+
+                    </div>
+
+                    <div class="wrapper-item one-line">
+                        <div class="item">
+                            <h5>Nhãn hiệu</h5>
+                            <input type="text" name="update-product-brand" id="update-product-brand" class="wid30">
+                        </div>
+                        <div class="item">
+                            <h5>Giá</h5>
+                            <input type="text" name="update-product-price" id="update-product-price" class="wid30">
+                        </div>
+
+                    </div>
+
+                    <div class="item">
+                        <h5>Số lượng</h5>
+                        <input type="text" name="update-product-quantity" id="update-product-quantity" class="wid15">
+                    </div>
+
+
+
+
+
+
+
+                    <div class="item">
+                        <h5>Kích thước</h5>
+                        <input type="text" name="update-product-size-list" id="update-product-size-list">
+
+                    </div>
+
+                    <div class="item">
+                        <h5>Màu sắc</h5>
+                        <input type="text""
+                            name=" update-product-color-list" id="update-product-color-list">
+
+                    </div>
+
+                </div>
+
+                <button class="update-product-to-api" onclick="updateProduct(this)">Cập nhật</button>
+
+            </div>
+        </div>
+
+        <div class="add-new-promotion-panel">
+            <div class="container">
+                <div class="add-new-promotion-closeBTN" onclick="hideAddPromotionPanel()">
+                    <img src="/assets/img/icon/close.png" alt="">
+                </div>
+
+                <h1>Thêm khuyến mãi mới</h1>
+
+                <div class="add-new-promotion-body">
+                    <div class="add-new-promotion-item">
+                        <h2>Tên sản phẩm</h2>
+                        <select name="" id="promotion-product-list">
+                            <option value="0">Chọn sản phẩm</option>
+
+                        </select>
+                    </div>
+
+                    <div class="add-new-promotion-item">
+                        <h2>Tên khuyến mãi</h2>
+                        <input type="text" id="add-promotion-promotionName">
+                    </div>
+
+                    <div class="add-new-promotion-item">
+                        <h2>Giảm giá</h2>
+                        <input type="text" id="add-promotion-discount" placeholder="VD: 10 (%)">
+                    </div>
+
+                    <div class="add-new-promotion-item">
+                        <h2>Ngày bắt đầu</h2>
+                        <input type="text" id="add-promotion-startDate" placeholder="YYYY-MM-DD">
+                    </div>
+
+                    <div class="add-new-promotion-item">
+                        <h2>Ngày kết thúc</h2>
+                        <input type="text" id="add-promotion-endDate" placeholder="YYYY-MM-DD">
+                    </div>
+                </div>
+
+                <button id="add-new-promotion-btn" onclick="addNewPromotionToAPI()">Thêm</button>
+
+            </div>
+        </div>
+
+        <div class="update-promotion-panel">
+            <div class="container">
+                <div class="update-promotion-closeBTN" onclick="hideUpdatePromotionPanel()">
+                    <img src="/assets/img/icon/close.png" alt="">
+                </div>
+
+                <h1>Cập nhật khuyến mãi</h1>
+
+                <div class="update-promotion-body">
+                    <div class="update-promotion-item">
+                        <h2>ID khuyến mãi</h2>
+                        <input type="text" id="update-promotion-promotionID">
+                    </div>
+
+                    <div class="update-promotion-item">
+                        <h2>ID sản phẩm</h2>
+                        <input type="text" id="update-promotion-productID">
+                    </div>
+
+                    <div class="update-promotion-item">
+                        <h2>Tên khuyến mãi</h2>
+                        <input type="text" id="update-promotion-promotionName">
+                    </div>
+
+                    <div class="update-promotion-item">
+                        <h2>Giảm giá</h2>
+                        <input type="text" id="update-promotion-discount">
+                    </div>
+
+                    <div class="update-promotion-item">
+                        <h2>Ngày bắt đầu</h2>
+                        <input type="text" id="update-promotion-startDate">
+                    </div>
+
+                    <div class="update-promotion-item">
+                        <h2>Ngày kết thúc</h2>
+                        <input type="text" id="update-promotion-endDate">
+                    </div>
+                </div>
+
+                <button id="update-promotion-btn" onclick="updatePromotion(this)">Cập nhật</button>
+
+            </div>
+        </div>
+
+        <div class="add-voucher-panel">
+            <div class="container">
+                <div class="add-voucher-closeBTN" onclick="hideAddVoucherPanel()">
+                    <img src="/assets/img/icon/close.png" alt="">
+                </div>
+
+                <h1>Thêm voucher giảm giá</h1>
+
+                <div class="add-voucher-body">
+                    <div class="add-voucher-item">
+                        <h2>Tên voucher</h2>
+                        <input type="text" id="add-voucher-voucherName">
+                    </div>
+
+                    <div class="add-voucher-item">
+                        <h2>Giảm giá</h2>
+                        <input type="text" id="add-voucher-value" placeholder="Giá trị giảm (VD: 50000)">
+                    </div>
+
+                    <div class="add-voucher-item">
+                        <h2>Ngày bắt đầu</h2>
+                        <input type="text" id="add-voucher-startDate" placeholder="YYYY-MM-DD">
+                    </div>
+
+                    <div class="add-voucher-item">
+                        <h2>Ngày kết thúc</h2>
+                        <input type="text" id="add-voucher-endDate" placeholder="YYYY-MM-DD">
+                    </div>
+                </div>
+
+                <button id="add-voucher-btn" onclick="addNewVoucher()">Thêm</button>
+
+            </div>
+        </div>
+
+    </section>
+
+    <footer id="footer">
+        <div class="footer-product">
+            <h3>Sản phẩm</h3>
+            <ul class="">
+                <li><a href="">Quần áo</a></li>
+                <li><a href="">Giày</a></li>
+                <li><a href="">Bóng</a></li>
+                <li><a href="">Kính bơi</a></li>
+                <li><a href="">Phụ kiện</a></li>
+            </ul>
+
+        </div>
+        <div class="footer-sport">
+            <h3>Thể thao</h3>
+            <ul>
+                <li><a href="/category.html">Bóng đá</a></li>
+                <li><a href="">Bóng chuyền</a></li>
+                <li><a href="">Bơi lội</a></li>
+                <li><a href="">Chạy</a></li>
+            </ul>
+        </div>
+        <div class="footer-info">
+            <h3>Thông tin</h3>
+            <ul>
+                <li>Web bán hàng và dịch vụ thể thao</li>
+                <li>Nhóm 6 - lớp 144913</li>
+                <li>Nhập môn Công nghệ Phần mềm</li>
+                <li>GVHD: cô Bùi Thị Mai Anh</li>
+            </ul>
+        </div>
+        <div class="footer-members">
+            <h3>Thành viên</h3>
+            <ul>
+                <li>Đỗ Đức Long 20215609</li>
+                <li>Nguyễn Thanh Hải 20215571</li>
+                <li>Trần Ngọc Minh 20215617</li>
+                <li>Vũ Quang Nam 20215622</li>
+                <li>Đào Anh Quân 20215631</li>
+                <li>Vũ Văn Hùng 20215588</li>
+            </ul>
+        </div>
+        <div class="footer-follow-us">
+            <h3>Theo dõi chúng tôi</h3>
+            <ul>
+                <li><a href="https://www.facebook.com/" target="_blank"><img src="/assets/img/icon/fb.png" alt=""></a>
+                </li>
+                <li><a href="https://www.youtube.com/" target="_blank"><img src="/assets/img/icon/insta.png" alt=""></a>
+                </li>
+                <li><a href="https://www.instagram.com/" target="_blank"><img src="/assets/img/icon/youtube.png"
+                            alt=""></a></li>
+                <li><a href="https://twitter.com/?lang=vi" target="_blank"><img src="/assets/img/icon/twitter.png"
+                            alt=""></a></li>
+                <li><a href="https://www.tiktok.com/vi-VN/" target="_blank"><img src="/assets/img/icon/tiktok.png"
+                            alt=""></a>
+                </li>
+            </ul>
+        </div>
+    </footer>
+
+    <script src="/js/base.js"></script>
+    <script src="/js/admin.js"></script>
+
+
+
+
+</body>
+
+
+
+
+</html>

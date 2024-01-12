@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hust Sport</title>
+    <link rel="stylesheet" href="/css/product-details.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="/css/base.css">
+
+</head>
+
+<body onload="getProductDetailById()">
+
+    <header>
+        <div class="header-left">
+            <a href="/index.html"><img src="/assets/img/logo/logo-full.png" alt=""></a>
+        </div>
+
+        <div class="header-right">
+            <ul class="menu">
+                <li><a href="/index.html">TRANG CHỦ</a></li>
+                <li class="menu-product">
+                    <a href="#product">
+                        SẢN PHẨM
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </a>
+
+                    <div class="sub-menu-product">
+                        <div onclick="redirectToCategory('Bóng đá', '2c6933bc-96ac-47c8-921f-e275018b31e9')">Bóng đá
+                        </div>
+                        <div onclick="redirectToCategory('Bóng chuyền','42380a8f-4330-4b72-be77-df613b206bb8')">Bóng
+                            chuyền</div>
+                        <div onclick="redirectToCategory('Bơi lội','9adf2fdf-4dc8-4fec-85f5-42455815761b')">Bơi lội
+                        </div>
+                        <div onclick="redirectToCategory('Chạy bộ','fb441d06-8e04-4780-8659-a87258048a82')">Chạy bộ
+                        </div>
+
+                    </div>
+
+                </li>
+                <li><a href="#footer">LIÊN HỆ</a></li>
+
+                <li class="header_cart">
+                    <span class="header_cart-navItem">GIỎ HÀNG</span>
+                    <div class="header_cart-body">
+                        <h4 class="header_cart-list-title">Sản phẩm đã thêm</h4>
+                        <img src="/assets/img/others/no-cart.png" alt="" class="header_cart-no-cart-img">
+                        <span class="header_cart-list-no-cart-msg">
+                            Chưa có sản phẩm
+                        </span>
+                        <ul id="header-cart-list">
+
+                        </ul>
+                        <div class="go-to-cart-btn">
+                            <button onclick="moveToCart()">Đi đến giỏ hàng</button>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            <div class="heading-btn">
+                <button class="btn-login" onclick="moveToLogin()">Đăng nhập</button>
+            </div>
+            <div class="header-user">
+                <p class="header-fullname">Username</p>
+                <img src="" class="header-user-avatar">
+                <i class="fa-solid fa-chevron-down" id="user-action"></i>
+                <div class="user-menu">
+                    <span class="user-profile" onclick="showProfilePage()">Xem tài khoản</span>
+                    <span class="user-logout" onclick="logOut()">Đăng xuất</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="DTproduct-container">
+        <div class="DTproduct-content">
+            <div class="DTproduct-img-wrap">
+                <img src="" alt="" tả ảnh" class="responsive-image" id="product-image">
+
+            </div>
+
+
+        </div>
+        <div class="DTproduct-choose">
+            <h2 id="product-name"></h2>
+
+            <div class="DTproduct-brand">
+                <h2>Nhãn hiệu:</h2>
+                <span id="product-brand"></span>
+            </div>
+
+            <div class="DTproduct-size">
+                <h2>Kích thước:</h2>
+                <select name="" id="product-size" required>
+                </select>
+            </div>
+            <div class="DTproduct-color">
+                <h2>Màu sắc:</h2>
+                <div class="DTproduct-color-list">
+                </div>
+            </div>
+
+            <div class="DTproduct-quantity">
+                <h2>Số Lượng:</h2>
+                <div class="DTproduct-quantity-button">
+                    <button class="quantity-button" onclick="decreaseQuantity()">-</button>
+                    <span id="quantity">1</span>
+                    <button class="quantity-button" onclick="increaseQuantity()">+</button>
+                </div>
+            </div>
+            <div class="DTproduct-price">
+                <h2>Giá: </h2>
+                <p id="product-price">
+                    <span id="product-old-price"></span>
+                    <span id="product-new-price"></span>
+                </p>
+            </div>
+
+            <div class="DTproduct-add">
+                <button class="add-to-cart-button" onclick="addProductToCart()">Thêm vào giỏ hàng</button>
+            </div>
+        </div>
+
+
+    </div>
+
+    <div class="product-detail">
+        <h1>Mô tả chi tiết</h1>
+        <p id="product-detail-description"></p>
+    </div>
+
+    <footer id="footer">
+        <div class="footer-product">
+            <h3>Sản phẩm</h3>
+            <ul class="">
+                <li><a href="">Quần áo</a></li>
+                <li><a href="">Giày</a></li>
+                <li><a href="">Bóng</a></li>
+                <li><a href="">Kính bơi</a></li>
+                <li><a href="">Phụ kiện</a></li>
+            </ul>
+
+        </div>
+        <div class="footer-sport">
+            <h3>Thể thao</h3>
+            <ul>
+                <li><a href="/category.html">Bóng đá</a></li>
+                <li><a href="">Bóng chuyền</a></li>
+                <li><a href="">Bơi lội</a></li>
+                <li><a href="">Chạy</a></li>
+            </ul>
+        </div>
+        <div class="footer-info">
+            <h3>Thông tin</h3>
+            <ul>
+                <li>Web bán hàng và dịch vụ thể thao</li>
+                <li>Nhóm 6 - lớp 144913</li>
+                <li>Nhập môn Công nghệ Phần mềm</li>
+                <li>GVHD: cô Bùi Thị Mai Anh</li>
+            </ul>
+        </div>
+        <div class="footer-members">
+            <h3>Thành viên</h3>
+            <ul>
+                <li>Đỗ Đức Long 20215609</li>
+                <li>Nguyễn Thanh Hải 20215571</li>
+                <li>Trần Ngọc Minh 20215617</li>
+                <li>Vũ Quang Nam 20215622</li>
+                <li>Đào Anh Quân 20215631</li>
+                <li>Vũ Văn Hùng 20215588</li>
+            </ul>
+        </div>
+        <div class="footer-follow-us">
+            <h3>Theo dõi chúng tôi</h3>
+            <ul>
+                <li><a href="https://www.facebook.com/" target="_blank"><img src="/assets/img/icon/fb.png" alt=""></a>
+                </li>
+                <li><a href="https://www.youtube.com/" target="_blank"><img src="/assets/img/icon/insta.png" alt=""></a>
+                </li>
+                <li><a href="https://www.instagram.com/" target="_blank"><img src="/assets/img/icon/youtube.png"
+                            alt=""></a></li>
+                <li><a href="https://twitter.com/?lang=vi" target="_blank"><img src="/assets/img/icon/twitter.png"
+                            alt=""></a></li>
+                <li><a href="https://www.tiktok.com/vi-VN/" target="_blank"><img src="/assets/img/icon/tiktok.png"
+                            alt=""></a>
+                </li>
+            </ul>
+        </div>
+    </footer>
+
+    <script src="/js/base.js"></script>
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const thisProductId = urlParams.get('id');
+
+
+        function start() {
+            changeHeader();
+            updateCart();
+            showShoppingCartMenu();
+        }
+
+
+        function toggleCheck(button) {
+            // Loại bỏ class "checked" từ tất cả các nút
+            document.querySelectorAll('.color-button').forEach(function (btn) {
+                btn.classList.remove('checked');
+            });
+
+            // Thêm hoặc loại bỏ class "checked" cho nút được chọn
+            button.classList.toggle('checked');
+        }
+
+        let quantityElement = document.getElementById('quantity');
+
+        function increaseQuantity() {
+            let currentQuantity = parseInt(quantityElement.innerText);
+            quantityElement.innerText = currentQuantity + 1;
+        }
+
+        function decreaseQuantity() {
+            let currentQuantity = parseInt(quantityElement.innerText);
+            if (currentQuantity > 1) {
+                quantityElement.innerText = currentQuantity - 1;
+            }
+        }
+
+        // document.addEventListener('DOMContentLoaded', function () {
+        //     // Lấy thông tin sản phẩm từ URL (ví dụ: product-detail.html?id=123)
+        //     const urlParams = new URLSearchParams(window.location.search);
+        //     const productId = urlParams.get('id');
+        //     console.log(productId);
+        //     // Kiểm tra xem productId có tồn tại không
+        //     if (productId) {
+        //         // Gọi API để lấy thông tin chi tiết sản phẩm
+        //         fetch(`https://api-hust.eztek.net/product/get-detail?ProductId=${productId}`)
+        //             .then(response => response.json())
+        //             .then(data => {
+        //                 thisProduct = data;
+        //             })
+        //             .catch(error => console.error('Error fetching product details:', error));
+        //     } else {
+        //         console.error('Product ID not found in the URL');
+        //     }
+        // });
+
+        function getProductDetailById() {
+            let urlParams = new URLSearchParams(window.location.search);
+            let productId = urlParams.get('id');
+            console.log(productId);
+
+            fetch(`https://api-hust.eztek.net/product/get-detail?ProductId=${productId}`, {
+                    method: 'GET',
+                    headers: {
+                        'Authorization': `Bearer ${idToken}`,
+                        'Content-Type': 'application/json'
+                    }
+
+                })
+                .then(response => response.json())
+                .then(data => {
+                    console.log(data);
+                    productType = data.type;
+
+                    let name = document.getElementById('product-name');
+                    let image = document.getElementById('product-image');
+                    let size = document.getElementById('product-size');
+                    let color = document.querySelector('.DTproduct-color-list');
+                    let brand = document.getElementById('product-brand');
+                    let description = document.getElementById('product-detail-description');
+
+                    let price = document.getElementById('product-price');
+
+                    let oldPrice = data.price ? data.price.toLocaleString('vn-VN') + 'đ' : '';
+                    let newPrice = data.promotionPrice ? data.promotionPrice.toLocaleString(
+                        'vn-VN') + 'đ' : '';
+
+                    console.log('oldPrice', oldPrice);
+                    console.log('newPrice', newPrice);
+
+                    if (newPrice === '') {
+                        newPrice = oldPrice;
+                        price.innerHTML =
+                            `<span id="product-new-price">${newPrice}</span>`
+                    } else {
+                        price.innerHTML = `
+                                <span id="product-old-price">${oldPrice}</span>
+                                <span id="product-new-price">${newPrice}</span>`
+                    }
+
+
+                    name.innerHTML = data.name;
+                    image.src = data.image;
+                    image.alt = data.name;
+                    brand.innerText = data.brand;
+                    description.innerText = data.description;
+
+                    data.listSize.forEach(s => {
+                        size.innerHTML += `<option value="${s}">${s}</option>`
+                    })
+
+                    data.listColor.forEach(c => {
+                        color.innerHTML +=
+                            `<button data-product-color="${c}" style="background-color: ${c}" class="color-button" onclick="toggleCheck(this)"></button>`
+                    })
+
+
+
+                })
+                .catch(err => {
+                    console.log(err);
+                })
+        }
+
+        // Thêm sản phẩm vào giỏ hàng
+        function addProductToCart() {
+            if(!isLogined) {
+                alert('Vui lòng đăng nhập để tiếp tục !')
+            } else {
+
+                if (document.querySelector('.checked') === null) {
+                    alert('Chưa chọn màu sắc !')
+                } else {
+                    
+                    let product = {
+                        productId: thisProductId,
+                        userId: userID,
+                        quantity: Number(document.getElementById('quantity').textContent),
+                        size: document.getElementById('product-size').value,
+                        color: document.querySelector('.checked').getAttribute('data-product-color')
+                    }
+    
+                    console.log(product);
+                    fetch('https://api-hust.eztek.net/add-product-to-shopping-cart', {
+                            method: 'POST',
+                            headers: {
+                                'Authorization': `Bearer ${idToken}`,
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify(product)
+                        })
+                        .then(response => response.json())
+                        .then(data => {
+                            console.log(data);
+                            console.log('Thêm vào giỏ hàng thành công');
+                            alert('Đã thêm sản phẩm vào giỏ !');
+                            window.location.reload();
+                        })
+                        .catch(err => {
+                            console.log(err);
+                        })
+    
+                }
+            }
+
+        }
+
+        // Hiển thị sản phẩm trong giỏ hàng (memu)
+
+
+
+
+
+        start();
+    </script>
+
+
+
+</body>
+
+</html>

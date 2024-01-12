@@ -1,0 +1,871 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="/css/category.css">
+    <link rel="stylesheet" href="/css/base.css">
+    <title>Hust Sport</title>
+</head>
+
+<body onload="start()">
+    <header>
+        <div class="header-left">
+            <a href="/index.html"><img src="/assets/img/logo/logo-full.png" alt=""></a>
+        </div>
+
+        <div class="header-right">
+            <ul class="menu">
+                <li><a href="/index.html">TRANG CHỦ</a></li>
+                <li class="menu-product">
+                    <a href="#product">
+                        SẢN PHẨM
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </a>
+
+                    <div class="sub-menu-product">
+                        <div onclick="redirectToCategory('Bóng đá', '2c6933bc-96ac-47c8-921f-e275018b31e9')">Bóng đá
+                        </div>
+                        <div onclick="redirectToCategory('Bóng chuyền','42380a8f-4330-4b72-be77-df613b206bb8')">Bóng
+                            chuyền</div>
+                        <div onclick="redirectToCategory('Bơi lội','9adf2fdf-4dc8-4fec-85f5-42455815761b')">Bơi lội
+                        </div>
+                        <div onclick="redirectToCategory('Chạy bộ','fb441d06-8e04-4780-8659-a87258048a82')">Chạy bộ
+                        </div>
+
+                    </div>
+
+                </li>
+                <li><a href="#footer">LIÊN HỆ</a></li>
+
+                <li class="header_cart">
+                    <span class="header_cart-navItem">GIỎ HÀNG</span>
+                    <div class="header_cart-body">
+                        <h4 class="header_cart-list-title">Sản phẩm đã thêm</h4>
+                        <img src="/assets/img/others/no-cart.png" alt="" class="header_cart-no-cart-img">
+                        <span class="header_cart-list-no-cart-msg">
+                            Chưa có sản phẩm
+                        </span>
+                        <ul id="header-cart-list"> </ul>
+                        <div class="go-to-cart-btn" onclick="moveToCart()">
+                            <button>Đi đến giỏ hàng</button>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            <div class="heading-btn">
+                <button class="btn-login">Đăng nhập</button>
+            </div>
+            <div class="header-user">
+                <p class="header-fullname">Username</p>
+                <img src="" class="header-user-avatar">
+                <i class="fa-solid fa-chevron-down" id="user-action"></i>
+                <div class="user-menu">
+                    <span class="user-profile" onclick="showProfilePage()">Xem tài khoản</span>
+                    <span class="user-logout" onclick="logOut()">Đăng xuất</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section id="category">
+        <div class="category-top">
+            <h1>DANH MỤC SẢN PHẨM: <span class="category-title"></span></h1>
+            <div class="search-input">
+                <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 21 21" fill="none">
+                    <path
+                        d="M16.5769 8.03846C16.5769 12.478 12.978 16.0769 8.53846 16.0769C4.09894 16.0769 0.5 12.478 0.5 8.03846C0.5 3.59894 4.09894 0 8.53846 0C12.978 0 16.5769 3.59894 16.5769 8.03846ZM1.59915 8.03846C1.59915 11.8709 4.70598 14.9778 8.53846 14.9778C12.3709 14.9778 15.4778 11.8709 15.4778 8.03846C15.4778 4.20598 12.3709 1.09915 8.53846 1.09915C4.70598 1.09915 1.59915 4.20598 1.59915 8.03846Z"
+                        fill="#929090" />
+                    <line x1="13.63" y1="13.1775" x2="20.2069" y2="19.7544" stroke="#929090" stroke-width="2" />
+                </svg>
+                <input id="searchInput" type="text" placeholder="Tìm kiếm sản phẩm, môn thể thao..."
+                    onkeydown="searchProductInCategory(event)">
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="filter">
+                <div class="filter-title">
+                    <h1>BỘ LỌC</h1>
+                    <img src="/assets/img/icon/filter.png" alt="">
+                </div>
+                <div class="filter-type">
+                    <h2>LOẠI SẢN PHẨM</h2>
+                    <div class="filter-checkbox-choice">
+                        <label class="choice-item" value="1">Quần Áo
+                            <input type="checkbox">
+                            <span class="checkmark"></span>
+                        </label>
+
+                        <label class="choice-item" value="2">Giày
+                            <input type="checkbox">
+                            <span class="checkmark"></span>
+                        </label>
+
+                        <label class="choice-item" value="3">Bóng
+                            <input type="checkbox">
+                            <span class="checkmark"></span>
+                        </label>
+
+                        <label class="choice-item" value="4">Kính bơi
+                            <input type="checkbox">
+                            <span class="checkmark"></span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="filter-brand">
+                    <h2>Thương hiệu</h2>
+                    <div class="filter-checkbox-choice">
+                        <label class="choice-item" value="Adidas">Adidas
+                            <input type="checkbox">
+                            <span class="checkmark"></span>
+                        </label>
+
+                        <label class="choice-item" value="Nike">Nike
+                            <input type="checkbox">
+                            <span class="checkmark"></span>
+                        </label>
+
+                        <label class="choice-item" value="BULBAL">BULBAL
+                            <input type="checkbox">
+                            <span class="checkmark"></span>
+                        </label>
+
+                        <label class="choice-item" value="Li-Ning">Li-Ning
+                            <input type="checkbox">
+                            <span class="checkmark"></span>
+                        </label>
+
+                        <label class="choice-item" value="Beyono">Beyono
+                            <input type="checkbox">
+                            <span class="checkmark"></span>
+                        </label>
+
+                        <label class="choice-item" value="ASICS">ASICS
+                            <input type="checkbox">
+                            <span class="checkmark"></span>
+                        </label>
+
+                        <label class="choice-item" value="Kamito">Kamito
+                            <input type="checkbox">
+                            <span class="checkmark"></span>
+                        </label>
+
+                    </div>
+                </div>
+
+                <div class="filter-price">
+                    <h2>GIÁ</h2>
+                    <div class="price-range-slider">
+                        <div class="slider-progress"></div>
+                    </div>
+                    <div class="price-range-input">
+                        <input class="range-min" type="range" max="5000000" min="0" step="500000" value="0">
+                        <input class="range-max" type="range" max="5000000" min="0" step="500000" value="5000000">
+                    </div>
+
+                    <div class="price-display">
+                        <p id="price-min">0</p>
+                        <span>&#10230;</span>
+                        <p id="price-max">5.000.000</p>
+                    </div>
+
+                </div>
+
+                <button class="confirm-filter" onclick="productFilter()">Lọc</button>
+            </div>
+
+            <div class="container-right">
+                <ul class="category-product-list">
+                    <!-- <li class="category-product-item" data-product-id="${product.id}">
+                        <a href="">
+                            <img class="product-main-img" src="/assets/img/product/product-category.png" alt="">
+                            <h2>Product name 1</h2>
+                            <div class="product-item-info">
+                                <div class="info-price">
+                                    <span class="info-price-before">100.000đ</span>
+                                    <span class="info-price-after">80.000đ</span>
+                                </div>
+                                <div class="info-rating">4.5/5 <img src="/assets/img/others/star.png" alt="">
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+
+                    <li class="category-product-item" data-product-id="${product.id}">
+                        <a href="">
+                            <img class="product-main-img" src="/assets/img/product/product-category.png" alt="">
+                            <h2>Product name 1</h2>
+                            <div class="product-item-info">
+                                <div class="info-price">
+                                    <span class="info-price-before"></span>
+                                    <span class="info-price-after">80.000đ</span>
+                                </div>
+                                <div class="info-rating">4.5/5 <img src="/assets/img/others/star.png" alt="">
+                                </div>
+                            </div>
+                        </a>
+                    </li> -->
+
+
+                    <!-- 
+                        
+                    <li class="category-product-item" data-product-id="${product.id}">
+                        <a href="">
+                            <img class="product-main-img" src="/assets/img/product/product-category.png" alt="">
+                            <h2>Product name 1</h2>
+                            <div class="product-item-info">
+                                <div class="info-price">
+                                    100.000đ
+                                </div>
+                                <div class="info-rating">
+                                    4.5/5
+                                    <img src="/assets/img/others/star.png" alt="">
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+
+                    <li class="category-product-item" data-product-id="${product.id}">
+                        <a href="">
+                            <img class="product-main-img" src="/assets/img/product/product-category.png" alt="">
+                            <h2>Product name 1</h2>
+                            <div class="product-item-info">
+                                <div class="info-price">
+                                    100.000đ
+                                </div>
+                                <div class="info-rating">
+                                    4.5/5
+                                    <img src="/assets/img/others/star.png" alt="">
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+
+                    <li class="category-product-item" data-product-id="${product.id}">
+                        <a href="">
+                            <img class="product-main-img" src="/assets/img/product/product-category.png" alt="">
+                            <h2>Product name 1</h2>
+                            <div class="product-item-info">
+                                <div class="info-price">
+                                    100.000đ
+                                </div>
+                                <div class="info-rating">
+                                    4.5/5
+                                    <img src="/assets/img/others/star.png" alt="">
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+
+                    <li class="category-product-item" data-product-id="${product.id}">
+                        <a href="">
+                            <img class="product-main-img" src="/assets/img/product/product-category.png" alt="">
+                            <h2>Product name 1</h2>
+                            <div class="product-item-info">
+                                <div class="info-price">
+                                    100.000đ
+                                </div>
+                                <div class="info-rating">
+                                    4.5/5
+                                    <img src="/assets/img/others/star.png" alt="">
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+
+                    <li class="category-product-item" data-product-id="${product.id}">
+                        <a href="">
+                            <img class="product-main-img" src="/assets/img/product/product-category.png" alt="">
+                            <h2>Product name 1</h2>
+                            <div class="product-item-info">
+                                <div class="info-price">
+                                    100.000đ
+                                </div>
+                                <div class="info-rating">
+                                    4.5/5
+                                    <img src="/assets/img/others/star.png" alt="">
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+
+                    <li class="category-product-item" data-product-id="${product.id}">
+                        <a href="">
+                            <img class="product-main-img" src="/assets/img/product/product-category.png" alt="">
+                            <h2>Product name 1</h2>
+                            <div class="product-item-info">
+                                <div class="info-price">
+                                    100.000đ
+                                </div>
+                                <div class="info-rating">
+                                    4.5/5
+                                    <img src="/assets/img/others/star.png" alt="">
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+
+                    <li class="category-product-item" data-product-id="${product.id}">
+                        <a href="">
+                            <img class="product-main-img" src="/assets/img/product/product-category.png" alt="">
+                            <h2>Product name 1</h2>
+                            <div class="product-item-info">
+                                <div class="info-price">
+                                    100.000đ
+                                </div>
+                                <div class="info-rating">
+                                    4.5/5
+                                    <img src="/assets/img/others/star.png" alt="">
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+
+                    <li class="category-product-item" data-product-id="${product.id}">
+                        <a href="">
+                            <img class="product-main-img" src="/assets/img/product/product-category.png" alt="">
+                            <h2>Product name 1</h2>
+                            <div class="product-item-info">
+                                <div class="info-price">
+                                    100.000đ
+                                </div>
+                                <div class="info-rating">
+                                    4.5/5
+                                    <img src="/assets/img/others/star.png" alt="">
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+
+                    <li class="category-product-item" data-product-id="${product.id}">
+                        <a href="">
+                            <img class="product-main-img" src="/assets/img/product/product-category.png" alt="">
+                            <h2>Product name 1</h2>
+                            <div class="product-item-info">
+                                <div class="info-price">
+                                    100.000đ
+                                </div>
+                                <div class="info-rating">
+                                    4.5/5
+                                    <img src="/assets/img/others/star.png" alt="">
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+
+                    <li class="category-product-item" data-product-id="${product.id}">
+                        <a href="">
+                            <img class="product-main-img" src="/assets/img/product/product-category.png" alt="">
+                            <h2>Product name 1</h2>
+                            <div class="product-item-info">
+                                <div class="info-price">
+                                    100.000đ
+                                </div>
+                                <div class="info-rating">
+                                    4.5/5
+                                    <img src="/assets/img/others/star.png" alt="">
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+
+                    <li class="category-product-item" data-product-id="${product.id}">
+                        <a href="">
+                            <img class="product-main-img" src="/assets/img/product/product-category.png" alt="">
+                            <h2>Product name 1</h2>
+                            <div class="product-item-info">
+                                <div class="info-price">
+                                    100.000đ
+                                </div>
+                                <div class="info-rating">
+                                    4.5/5
+                                    <img src="/assets/img/others/star.png" alt="">
+                                </div>
+                            </div>
+                        </a>
+                    </li> -->
+
+
+                    <div class="no-product-find">
+                        <h2>Không tìm thấy sản phẩm nào !</h2>
+                        <img src="/assets/img/others/No_Product_Found.png" alt="">
+                    </div>
+                </ul>
+
+                <ul class="product-list-page">
+                    <li class="product-prev-page"><i class="fa-solid fa-angle-left"></i></li>
+                    <li class="page">1</li>
+                    <li class="page">2</li>
+                    <li class="product-next-page"><i class="fa-solid fa-angle-right"></i></li>
+                </ul>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <footer id="footer">
+        <div class="footer-product">
+            <h3>Sản phẩm</h3>
+            <ul class="">
+                <li><a href="">Quần áo</a></li>
+                <li><a href="">Giày</a></li>
+                <li><a href="">Bóng</a></li>
+                <li><a href="">Kính bơi</a></li>
+                <li><a href="">Phụ kiện</a></li>
+            </ul>
+
+        </div>
+        <div class="footer-sport">
+            <h3>Thể thao</h3>
+            <ul>
+                <li><a href="/category.html">Bóng đá</a></li>
+                <li><a href="">Bóng chuyền</a></li>
+                <li><a href="">Bơi lội</a></li>
+                <li><a href="">Chạy</a></li>
+            </ul>
+        </div>
+        <div class="footer-info">
+            <h3>Thông tin</h3>
+            <ul>
+                <li>Web bán hàng và dịch vụ thể thao</li>
+                <li>Nhóm 6 - lớp 144913</li>
+                <li>Nhập môn Công nghệ Phần mềm</li>
+                <li>GVHD: cô Bùi Thị Mai Anh</li>
+            </ul>
+        </div>
+        <div class="footer-members">
+            <h3>Thành viên</h3>
+            <ul>
+                <li>Đỗ Đức Long 20215609</li>
+                <li>Nguyễn Thanh Hải 20215571</li>
+                <li>Trần Ngọc Minh 20215617</li>
+                <li>Vũ Quang Nam 20215622</li>
+                <li>Đào Anh Quân 20215631</li>
+                <li>Vũ Văn Hùng 20215588</li>
+            </ul>
+        </div>
+        <div class="footer-follow-us">
+            <h3>Theo dõi chúng tôi</h3>
+            <ul>
+                <li><a href="https://www.facebook.com/" target="_blank"><img src="/assets/img/icon/fb.png" alt=""></a>
+                </li>
+                <li><a href="https://www.youtube.com/" target="_blank"><img src="/assets/img/icon/insta.png" alt=""></a>
+                </li>
+                <li><a href="https://www.instagram.com/" target="_blank"><img src="/assets/img/icon/youtube.png"
+                            alt=""></a></li>
+                <li><a href="https://twitter.com/?lang=vi" target="_blank"><img src="/assets/img/icon/twitter.png"
+                            alt=""></a></li>
+                <li><a href="https://www.tiktok.com/vi-VN/" target="_blank"><img src="/assets/img/icon/tiktok.png"
+                            alt=""></a>
+                </li>
+            </ul>
+        </div>
+    </footer>
+</body>
+
+
+<script src="/js/base.js"></script>
+<script>
+
+    let categoryId;
+
+    const rangeInput = document.querySelectorAll(".price-range-input input");
+    progess = document.querySelector(".price-range-slider .slider-progress");
+
+    let priceGap = 500000;
+
+    rangeInput.forEach(input => {
+        input.addEventListener("input", e => {
+            let minValue = parseInt(rangeInput[0].value),
+                maxValue = parseInt(rangeInput[1].value);
+
+            if (maxValue - minValue < priceGap) {
+                if (e.target.className === "range-min") {
+                    rangeInput[0].value = maxValue - priceGap;
+                } else {
+                    rangeInput[1].value = minValue + priceGap;
+                }
+            } else {
+                let minPrice = minValue.toLocaleString('it-IT');
+                let maxPrice = maxValue.toLocaleString('it-IT');
+                document.getElementById("price-min").innerHTML = minPrice;
+                document.getElementById("price-max").innerHTML = maxPrice;
+                progess.style.left = (minValue / rangeInput[0].max) * 100 + "%";
+                progess.style.right = 100 - (maxValue / rangeInput[1].max) * 100 + "%";
+            }
+
+        });
+    });
+
+    function start() {
+        changeHeader();
+        getProductByCategory();
+        loadProductItem();
+        updateCart();
+        showShoppingCartMenu();
+    }
+
+    // product list - pagination
+    let thisPage = 1;
+    let limit = 9;
+
+    function loadProductItem() {
+        let productList = document.querySelectorAll('.category-product-item');
+        let beginGet = limit * (thisPage - 1);
+        let endGet = limit * thisPage - 1;
+        productList.forEach((item, key) => {
+            if (key >= beginGet && key <= endGet) {
+                item.style.display = 'block';
+            } else {
+                item.style.display = 'none';
+            }
+        })
+        listPage();
+    }
+
+
+
+
+
+    function listPage() {
+        let productList = document.querySelectorAll('.category-product-item');
+
+        let count = Math.ceil(productList.length / limit);
+        document.querySelector('.product-list-page').innerHTML = '';
+        for (i = 1; i <= count; i++) {
+            let newPage = document.createElement('li');
+            newPage.classList.add('page');
+            newPage.innerText = i;
+            if (i === thisPage) {
+                newPage.classList.add('current-product-page');
+            } else {
+                newPage.style.backgroundColor = '#cecece';
+            }
+            newPage.setAttribute('onclick', "changePage(" + i + ")");
+            document.querySelector('.product-list-page').appendChild(newPage);
+        }
+    }
+
+    function changePage(i) {
+        thisPage = i;
+        loadProductItem();
+    }
+
+
+
+
+    // Hiển thị danh sách sản phẩm theo môn thể thao
+    function getParameterByName(name, url) {
+        if (!url) url = window.location.href;
+        name = name.replace(/[\[\]]/g, "\\$&");
+        var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+            results = regex.exec(url);
+        if (!results) return null;
+        if (!results[2]) return '';
+        return decodeURIComponent(results[2].replace(/\+/g, ' '));
+    }
+
+    function getProductByCategory() {
+        var categoryName = getParameterByName('name');
+        categoryId = getParameterByName('id');
+
+        console.log(categoryName, categoryId);
+
+        if (categoryName && categoryId) {
+            // Hiển thị tên môn thể thao
+            document.querySelector('.category-title').textContent = categoryName;
+
+            // Gọi API để lấy dữ liệu cho categoryId
+            fetch(`https://api-hust.eztek.net/product/get-all-product-sportId?SportId=${categoryId}&Page=1&PageSize=1000`, {
+                    headers: {
+                        'Authorization': `Bearer ${idToken}`
+                    }
+                })
+                .then(response => response.json())
+                .then(data => {
+                    // Xử lý dữ liệu từ API và hiển thị
+                    let productList = data.data;
+                    console.log(data);
+
+                    productList.map(product => {
+                        let priceBefore = product.price ? product.price.toLocaleString('vn-VN') + 'đ' : '';
+                        let priceAfter = product.promotionPrice ? product.promotionPrice.toLocaleString(
+                            'vn-VN') + 'đ' : '';
+
+                        if (priceAfter === '') {
+                            priceAfter = priceBefore;
+                            document.querySelector('.category-product-list').innerHTML +=
+                                `<li class="category-product-item" data-product-id="${product.id}">
+                            <a href="product-details.html?id=${product.id}">
+                                <img class="product-main-img" src="${product.image}" alt="">
+                                <h2>${product.name}</h2>
+                                <div class="product-item-info">
+                                    <div class="info-price">
+                                        <span class="info-price-after">${priceAfter}</span>
+                                    </div>
+                                    <div class="info-rating">4.5/5 <img src="/assets/img/others/star.png" alt=""></div>
+                                </div>
+                            </a>
+                        </li>`
+                        } else {
+
+                            document.querySelector('.category-product-list').innerHTML +=
+                                `<li class="category-product-item" data-product-id="${product.id}">
+                                    <a href="product-details.html?id=${product.id}">
+                                        <img class="product-main-img" src="${product.image}" alt="">
+                                        <h2>${product.name}</h2>
+                                        <div class="product-item-info">
+                                            <div class="info-price">
+                                                <span class="info-price-before">${priceBefore}</span>
+                                                <span class="info-price-after">${priceAfter}</span>
+                                            </div>
+                                            <div class="info-rating">4.5/5 <img src="/assets/img/others/star.png" alt=""></div>
+                                        </div>
+                                        <span id="product-sale-tag"><img src="/assets/img/icon/tag.png"</span>
+                                    </a>
+                                </li>`
+                        }
+
+
+                    })
+
+                    loadProductItem();
+
+
+                })
+                .catch(error => console.error('Error:', error));
+        } else {
+            console.error('Category name or ID not found in the URL.');
+        }
+    }
+
+
+    // Lấy ra keyword tìm kiếm và hiển thị danh sách kết quả
+    document.addEventListener("DOMContentLoaded", function () {
+        // Lấy tham số từ URL
+        var urlParams = new URLSearchParams(window.location.search);
+        var keyword = urlParams.get('keyword');
+
+        if (keyword) {
+            // Gọi hàm để lấy và hiển thị sản phẩm từ API
+            fetchSearchProduct(keyword);
+        }
+    });
+
+    function fetchSearchProduct(keyword) {
+        let title = document.querySelector('.category-top h1');
+        let titleKeyword = document.querySelector('.category-title');
+        let productList = document.querySelector('.category-product-list');
+
+        fetch(`https://api-hust.eztek.net/product/search-product?KeyWord=${encodeURIComponent(keyword)}&Page=0&PageSize=100`, {
+                method: 'GET',
+                headers: {
+                    'Authorization': `Bearer ${idToken}`,
+                    'Content-Type': 'application/json'
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+                title.innerText = `KẾT QUẢ TÌM KIẾM: "${keyword}"`;
+
+                if (data.data.length === 0) {
+                    productList.querySelector('.no-product-find').style.display = 'flex';
+                }
+
+                // data.data.forEach(product => {
+                //     productList.innerHTML +=
+                //         `
+                //     <li class="category-product-item" data-product-id="${product.id}">
+                //         <a href="product-details.html?id=${product.id}">
+                //             <img class="product-main-img" src="${product.image}" alt="">
+                //             <h2>${product.name}</h2>
+                //             <div class="product-item-info">
+                //                 <div class="info-price">
+                //                     ${product.price.toLocaleString('vn-VN') + ' đ'}
+                //                 </div>
+                //                 <div class="info-rating">
+                //                     4.5/5
+                //                     <img src="/assets/img/others/star.png" alt="">
+                //                 </div>
+                //             </div>
+                //         </a>
+                //     </li> 
+                //     `
+
+                data.data.map(product => {
+                    let priceBefore = product.price ? product.price.toLocaleString('vn-VN') + 'đ' : '';
+                    let priceAfter = product.promotionPrice ? product.promotionPrice.toLocaleString(
+                        'vn-VN') + 'đ' : '';
+
+                    if (priceAfter === '') {
+                        priceAfter = priceBefore;
+                        productList.innerHTML +=
+                            `<li class="category-product-item" data-product-id="${product.id}">
+                            <a href="product-details.html?id=${product.id}">
+                                <img class="product-main-img" src="${product.image}" alt="">
+                                <h2>${product.name}</h2>
+                                <div class="product-item-info">
+                                    <div class="info-price">
+                                        <span class="info-price-after">${priceAfter}</span>
+                                    </div>
+                                    <div class="info-rating">4.5/5 <img src="/assets/img/others/star.png" alt=""></div>
+                                </div>
+                            </a>
+                        </li>`
+                    } else {
+
+                        productList.innerHTML +=
+                            `<li class="category-product-item" data-product-id="${product.id}">
+                                    <a href="product-details.html?id=${product.id}">
+                                        <img class="product-main-img" src="${product.image}" alt="">
+                                        <h2>${product.name}</h2>
+                                        <div class="product-item-info">
+                                            <div class="info-price">
+                                                <span class="info-price-before">${priceBefore}</span>
+                                                <span class="info-price-after">${priceAfter}</span>
+                                            </div>
+                                            <div class="info-rating">4.5/5 <img src="/assets/img/others/star.png" alt=""></div>
+                                        </div>
+                                        <span id="product-sale-tag"><img src="/assets/img/icon/tag.png"</span>
+                                    </a>
+                                </li>`
+                    }
+
+
+                })
+                loadProductItem();
+
+            })
+            .catch(err => {
+                console.log(err);
+            })
+    }
+
+
+    // Sự kiện tìm kiếm cho input ở category
+    function searchProductInCategory(event) {
+        if (event.keyCode === 13) {
+            // Lấy giá trị từ ô input
+            var keyword = searchInput.value.trim();
+
+            // Kiểm tra xem từ khóa có tồn tại không
+            if (keyword !== '') {
+                // Chuyển hướng sang trang category.html với tham số truyền vào là từ khóa tìm kiếm
+                window.location.href = 'category.html?keyword=' + encodeURIComponent(keyword);
+            }
+        }
+    }
+
+    function productFilter() {
+        // Lấy danh sách các checkbox Loại sản phẩm
+        const typeCheckboxes = document.querySelectorAll('.filter-type input[type="checkbox"]:checked');
+        const types = Array.from(typeCheckboxes).map(checkbox => checkbox.parentNode.getAttribute('value'));
+
+        // Lấy danh sách các checkbox Thương hiệu
+        const brandCheckboxes = document.querySelectorAll('.filter-brand input[type="checkbox"]:checked');
+        const brands = Array.from(brandCheckboxes).map(checkbox => checkbox.parentNode.getAttribute('value'));
+
+        // Lấy giá trị của các đối tượng đầu vào Giá
+        const minPrice = document.querySelector('.range-min').value;
+        const maxPrice = document.querySelector('.range-max').value;
+
+        // Xây dựng URL
+        const apiUrl = "https://api-hust.eztek.net/product/get-all-product-sportId?";
+        const sport = `SportId=${categoryId}`;
+        const typeParams = types.map(type => `Type=${type}`).join('&');
+        const brandParams = brands.map(brand => `Brand=${brand}`).join('&');
+        const priceParams = `Min=${minPrice}&Max=${maxPrice}`;
+        const pageParams = "Page=0&PageSize=100";
+
+        const finalUrl = `${apiUrl}${sport}&${typeParams}&${brandParams}&${priceParams}&${pageParams}`;
+
+        fetch(finalUrl, {
+                method: 'GET',
+                headers: {
+                    'Authorization': `Bearer ${idToken}`,
+                    'Content-Type': 'application/json'
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                let categoryProductList = document.querySelector('.category-product-list');
+                let productList = data.data;
+
+                categoryProductList.innerHTML = `
+                    <div class="no-product-find">
+                        <h2>Không tìm thấy sản phẩm nào !</h2>
+                        <img src="/assets/img/others/No_Product_Found.png" alt="">
+                    </div>`;
+
+                productList.map(product => {
+                    let priceBefore = product.price ? product.price.toLocaleString('vn-VN') + 'đ' : '';
+                    let priceAfter = product.promotionPrice ? product.promotionPrice.toLocaleString(
+                        'vn-VN') + 'đ' : '';
+
+                    if (priceAfter === '') {
+                        priceAfter = priceBefore;
+                        document.querySelector('.category-product-list').innerHTML +=
+                            `<li class="category-product-item" data-product-id="${product.id}">
+                            <a href="product-details.html?id=${product.id}">
+                                <img class="product-main-img" src="${product.image}" alt="">
+                                <h2>${product.name}</h2>
+                                <div class="product-item-info">
+                                    <div class="info-price">
+                                        <span class="info-price-after">${priceAfter}</span>
+                                    </div>
+                                    <div class="info-rating">4.5/5 <img src="/assets/img/others/star.png" alt=""></div>
+                                </div>
+                            </a>
+                        </li>`
+                    } else {
+
+                        document.querySelector('.category-product-list').innerHTML +=
+                            `<li class="category-product-item" data-product-id="${product.id}">
+                                    <a href="product-details.html?id=${product.id}">
+                                        <img class="product-main-img" src="${product.image}" alt="">
+                                        <h2>${product.name}</h2>
+                                        <div class="product-item-info">
+                                            <div class="info-price">
+                                                <span class="info-price-before">${priceBefore}</span>
+                                                <span class="info-price-after">${priceAfter}</span>
+                                            </div>
+                                            <div class="info-rating">4.5/5 <img src="/assets/img/others/star.png" alt=""></div>
+                                        </div>
+                                        <span id="product-sale-tag"><img src="/assets/img/icon/tag.png"</span>
+                                    </a>
+                                </li>`
+                    }
+
+
+                })
+
+                let productItems = document.querySelectorAll('.category-product-item');
+                console.log(productItems.length);
+                if (productItems.length === 0) {
+                    categoryProductList.querySelector('.no-product-find').style.display = 'flex';
+                } else {
+                    loadProductItem();
+                    changePage(1);
+                }
+
+            })
+            .catch(err => {
+                console.log(err);
+            })
+    }
+
+
+</script>
+
+</html>
